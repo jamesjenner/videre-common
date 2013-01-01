@@ -29,6 +29,11 @@ var VEHICLE_UOM_MS = 'metersPerSecond';
 var VEHICLE_DEVICE_PARROT_V1 = 'parrot.v1';
 var VEHICLE_DEVICE_PARROT_V2 = 'parrot.v2';
 
+var VEHICLE_DISCONNECTED = 0;
+var VEHICLE_CONNECTED = 1;
+var VEHICLE_RECONNECTING = 2;
+var VEHICLE_DISCONNECTING = 3;
+
 var vehicleValidTypes = new Object();
 vehicleValidTypes[VEHICLE_AIR] = 'Air';
 vehicleValidTypes[VEHICLE_SURFACE] = 'Surface';
@@ -41,6 +46,7 @@ var Vehicle = function (options) {
     
     options = options || {};
     
+    this.connectionStatus = options.connectionStatus || VEHICLE_DISCONNECTED;
     this.position = options.position || 0;
     
     this.name = options.name || VEHICLE_DEFAULT_NAME;
