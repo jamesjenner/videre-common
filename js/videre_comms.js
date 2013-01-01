@@ -24,6 +24,9 @@ var MSG_GET_VEHICLES = 'getVehicles';
 var MSG_VEHICLE_TELEMETERY = 'vehicleTelemetery';
 var MSG_GET_TELEMETERY = 'getVehicleTelemetery';
 
+var MSG_VEHICLE_PAYLOAD = 'vehiclePayload';
+var MSG_GET_PAYLOAD = 'getVehiclePayload';
+
 var MSG_CMD_EMERGENCY_STOP = 'cmdAbort';
 var MSG_CMD_LEFT = 'cmdLeft';
 var MSG_CMD_RIGHT = 'cmdRight';
