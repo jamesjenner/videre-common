@@ -38,7 +38,9 @@ var Position = function (options) {
 var Telemetry = function (options) {
     options = options || {};
     
+    this.state = options.state || '';
     this.speed = options.speed || 0;
+    this.velocity = options.velocity || {x: 0, y: 0, z: 0};
     this.attitude = options.attitude || new Attitude();
     this.altitude = options.altitude || 0;
     this.temperature = options.temperature || 0;
