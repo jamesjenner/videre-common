@@ -80,3 +80,6 @@ var Vehicle = function (options) {
     this.maxSpeed = options.maxSpeed || 100;
     this.speedUom = options.speedUom || VEHICLE_UOM_KMH;
 }
+
+var Path = function (options) {
+}
