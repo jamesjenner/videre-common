@@ -16,25 +16,6 @@
  * along with this program. If not, see http://www.gnu.org/licenses/
  */
 
-var Attitude = function (options) {
-    options = options || {};
-
-    this.pitch = options.pitch | 0;
-    this.roll = options.roll | 0;
-    this.yaw = options.yaw | 0;
-
-    this.x = this.pitch;
-    this.y = this.roll;
-    this.z = this.yaw;
-}
-
-var Position = function (options) {
-    options = options || {};
-
-    this.latitude = options.latitude || 0;
-    this.longitude = options.longitude || 0;
-}
-
 var Telemetry = function (options) {
     options = options || {};
     
