@@ -16,6 +16,7 @@
  * along with this program. If not, see http://www.gnu.org/licenses/
  */
 
+var MSG_UNKNOWN = '__unknown';
 var MSG_ADD_VEHICLE = 'addVehicle';
 var MSG_DELETE_VEHICLE = 'deleteVehicle';
 var MSG_UPDATE_VEHICLE = 'updateVehicle';
@@ -34,3 +35,39 @@ var MSG_CMD_FORWARD = 'cmdForward';
 var MSG_CMD_REVERSE = 'cmdReverse';
 var MSG_CMD_UP = 'cmdUp';
 var MSG_CMD_DOWN = 'cmdDown';
+
+Message = function (jsonData) {
+    this.messageType = MSG_UNKNOWN;
+    this.messageData = null;
+
+    if(jsonData) {
+	data = JSON.parse(jsonData);
+
+	this.type = data.id;
+	this.data = data.msg
+    }
+};
+
+/* 
+ * deconstruct a message 
+ */
+Message.deconstructMessage = function(message) {
+    return new Message(message);
+};
+
+/* 
+ * constructs a message based on an id and data 
+ *
+ * The contents can be any type of data, including objects parsed via json
+ */
+Message.constructMessage = function(id, data) {
+    return JSON.stringify({id: id, msg: data});
+};
+
+/* 
+ * Constructs a message based on an id and data, while converting the data to a JSON string
+ *
+ */
+Message.constructMessageJSON = function(id, data) {
+    return JSON.stringify({id: id, msg: JSON.stringify(data)});
+};
