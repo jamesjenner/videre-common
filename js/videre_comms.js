@@ -39,23 +39,18 @@ var MSG_CMD_REVERSE = 'cmdReverse';
 var MSG_CMD_UP = 'cmdUp';
 var MSG_CMD_DOWN = 'cmdDown';
 
-Message = function (jsonData) {
-    this.messageType = MSG_UNKNOWN;
-    this.messageData = null;
-
-    if(jsonData) {
-	data = JSON.parse(jsonData);
-
-	this.type = data.id;
-	this.data = data.msg
-    }
+Message = function (data) {
+    data = data || {};
+	     
+    this.id = data.id || MSG_UNKNOWN;
+    this.msg = data.msg || null;
 };
 
 /* 
  * deconstruct a message 
  */
-Message.deconstructMessage = function(message) {
-    return new Message(message);
+Message.deconstructMessage = function(jsonData) {
+    return new Message(JSON.parse(jsonData));
 };
 
 /* 
