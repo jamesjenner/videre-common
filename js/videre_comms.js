@@ -21,6 +21,7 @@ var MSG_ADD_VEHICLE = 'addVehicle';
 var MSG_DELETE_VEHICLE = 'deleteVehicle';
 var MSG_UPDATE_VEHICLE = 'updateVehicle';
 var MSG_GET_VEHICLES = 'getVehicles';
+var MSG_VEHICLES = 'vehicles';
 
 var MSG_VEHICLE_TELEMETERY = 'vehicleTelemetery';
 var MSG_GET_TELEMETERY = 'getVehicleTelemetery';
@@ -31,6 +32,8 @@ var MSG_GET_PAYLOAD = 'getVehiclePayload';
 var MSG_CMD_EMERGENCY_STOP = 'cmdAbort';
 var MSG_CMD_LEFT = 'cmdLeft';
 var MSG_CMD_RIGHT = 'cmdRight';
+var MSG_CMD_TURN_LEFT = 'cmdTurnLeft';
+var MSG_CMD_TURN_RIGHT = 'cmdTurnRight';
 var MSG_CMD_FORWARD = 'cmdForward';
 var MSG_CMD_REVERSE = 'cmdReverse';
 var MSG_CMD_UP = 'cmdUp';
