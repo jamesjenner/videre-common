@@ -31,6 +31,9 @@ var MSG_AUTHENTICATION_ACCEPTED = 'authenticationAccepted';
 var MSG_AUTHENTICATION_REJECTED = 'authenticationRejected';
 var MSG_CHANGE_PWD = 'changePwd';
 
+var MSG_SESSION = 'session';
+var MSG_REQUEST_SESSION = 'requestSession';
+
 var MSG_VEHICLE_PAYLOAD = 'vehiclePayload';
 var MSG_GET_PAYLOAD = 'getVehiclePayload';
 
