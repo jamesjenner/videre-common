@@ -51,29 +51,22 @@ Message = function (data) {
     data = data || {};
 	     
     this.id = data.id || MSG_UNKNOWN;
-    this.msg = data.msg || null;
+    this.body = data.body || null;
 };
 
 /* 
  * deconstruct a message 
  */
 Message.deconstructMessage = function(jsonData) {
-    return new Message(JSON.parse(jsonData));
-};
-
-/* 
- * constructs a message based on an id and data 
- *
- * The contents can be any type of data, including objects parsed via json
- */
-Message.constructMessage = function(id, data) {
-    return JSON.stringify({id: id, msg: data});
+    var obj = JSON.parse(jsonData);
+    return new Message({id: obj.id, body: JSON.parse(obj.msg));
 };
 
 /* 
  * Constructs a message based on an id and data, while converting the data to a JSON string
  *
  */
-Message.constructMessageJSON = function(id, data) {
-    return JSON.stringify({id: id, msg: JSON.stringify(data)});
+Message.constructMessage = function(id, data) {
+    return JSON.stringify({id: id, body: JSON.stringify(data)});
 };
+
