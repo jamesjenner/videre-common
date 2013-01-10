@@ -59,7 +59,7 @@ Message = function (data) {
  */
 Message.deconstructMessage = function(jsonData) {
     var obj = JSON.parse(jsonData);
-    return new Message({id: obj.id, body: JSON.parse(obj.msg));
+    return new Message({id: obj.id, body: JSON.parse(obj.body)});
 };
 
 /* 
