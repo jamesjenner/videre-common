@@ -60,7 +60,14 @@ Message = function (data) {
  */
 Message.deconstructMessage = function(jsonData) {
     var obj = JSON.parse(jsonData);
-    return new Message({id: obj.id, body: JSON.parse(obj.body)});
+
+    // initialise in case it wasn't sent
+    obj.body = obj.body || 'null';
+
+    // always parse, presuming it's JSON
+    obj.body = JSON.parse(obj.body);
+
+    return new Message(obj);
 };
 
 /* 
