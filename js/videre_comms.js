@@ -35,6 +35,10 @@ var MSG_SESSION = 'session';
 var MSG_SESSION_CONFIRMED = 'sessionConfirmed';
 var MSG_REQUEST_SESSION = 'requestSession';
 
+var COMMS_TYPE_SECURE_ONLY = 'secureOnly';
+var COMMS_TYPE_UNSECURE_ONLY = 'unsecureOnly';
+var COMMS_TYPE_MIXED = 'mixed';
+
 var MSG_VEHICLE_PAYLOAD = 'vehiclePayload';
 var MSG_GET_PAYLOAD = 'getVehiclePayload';
 
