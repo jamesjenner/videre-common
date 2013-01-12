@@ -16,6 +16,8 @@
  * along with this program. If not, see http://www.gnu.org/licenses/
  */
 
+"use strict"
+
 var MSG_UNKNOWN = '__unknown';
 var MSG_ADD_VEHICLE = 'addVehicle';
 var MSG_DELETE_VEHICLE = 'deleteVehicle';
@@ -52,7 +54,7 @@ var MSG_CMD_REVERSE = 'cmdReverse';
 var MSG_CMD_UP = 'cmdUp';
 var MSG_CMD_DOWN = 'cmdDown';
 
-Message = function (data) {
+var Message = function (data) {
     data = data || {};
 	     
     this.id = data.id || MSG_UNKNOWN;
