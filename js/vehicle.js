@@ -16,7 +16,7 @@
  * along with this program. If not, see http://www.gnu.org/licenses/
  */
 
-"use strict"
+// "use strict"
 
 var VEHICLE_AIR = 'air';
 var VEHICLE_SURFACE = 'surface';
