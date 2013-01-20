@@ -54,6 +54,7 @@ var Vehicle = function (options) {
     this.position = options.position || 0;
     
     this.name = options.name || VEHICLE_DEFAULT_NAME;
+    this.id = options.id || "none";
     this.type = options.type || VEHICLE_AIR;
     this.deviceType = options.deviceType || VEHICLE_DEVICE_PARROT_V1;
     
