@@ -54,6 +54,12 @@ var MSG_CMD_REVERSE = 'cmdReverse';
 var MSG_CMD_UP = 'cmdUp';
 var MSG_CMD_DOWN = 'cmdDown';
 
+var MSG_CMD_ON = 'cmdOn';
+var MSG_CMD_OFF = 'cmdOff';
+
+var MSG_CMD_LAND = 'cmdLand';
+var MSG_CMD_TAKEOFF = 'cmdTakeoff';
+
 var Message = function (data) {
     data = data || {};
 	     
