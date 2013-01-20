@@ -43,9 +43,6 @@ vehicleValidTypes[VEHICLE_SUBMERSIBLE] = 'Submersible';
 
 var Vehicle = function (options) {
     
-    
-    // this.vehicleValidTypes = {'air':'Air','surface':'Surface','submersible':'Submersible'};
-    
     options = options || {};
     
     this.connectionStatus = options.connectionStatus || VEHICLE_DISCONNECTED;
@@ -59,7 +56,7 @@ var Vehicle = function (options) {
     this.isTypeValid = false;
     
     for(var i in vehicleValidTypes) {
-        if(this.type == i) {
+        if(this.type == vehicleValidTypes[i]) {
           this.isTypeValid = true;
           break;
         }
