@@ -18,9 +18,14 @@
 
 // "use strict"
 
-var VEHICLE_AIR = 'air';
-var VEHICLE_SURFACE = 'surface';
-var VEHICLE_SUBMERSIBLE = 'submersible';
+var VEHICLE_AIR = 'Air';
+var VEHICLE_SURFACE = 'Surface';
+var VEHICLE_SUBMERSIBLE = 'Submersible';
+
+var VEHICLE_KEY_AIR = 'air';
+var VEHICLE_KEY_SURFACE = 'surface';
+var VEHICLE_KEY_SUBMERSIBLE = 'submersible';
+
 var VEHICLE_KEY = 'Vehicle';
 var VEHICLE_DEFAULT_NAME = 'Thunderbird 1';
 
@@ -37,9 +42,9 @@ var VEHICLE_RECONNECTING = 2;
 var VEHICLE_DISCONNECTING = 3;
 
 var vehicleValidTypes = new Object();
-vehicleValidTypes[VEHICLE_AIR] = 'Air';
-vehicleValidTypes[VEHICLE_SURFACE] = 'Surface';
-vehicleValidTypes[VEHICLE_SUBMERSIBLE] = 'Submersible';
+vehicleValidTypes[VEHICLE_KEY_AIR] = 'Air';
+vehicleValidTypes[VEHICLE_KEY_SURFACE] = 'Surface';
+vehicleValidTypes[VEHICLE_KEY_SUBMERSIBLE] = 'Submersible';
 
 var Vehicle = function (options) {
     
