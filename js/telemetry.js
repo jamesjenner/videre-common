@@ -21,6 +21,9 @@
 var Telemetry = function (options) {
     options = options || {};
     
+    this.name = options.name || "unknown";
+    this.id = options.id || "unknown";
+
     this.state = options.state || '';
     this.speed = options.speed || 0;
     this.velocity = options.velocity || {x: 0, y: 0, z: 0};
