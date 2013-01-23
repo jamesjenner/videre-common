@@ -21,5 +21,7 @@
 var Payload = function (options) {
     options = options || {};
 
+    this.name = options.name || "unknown";
+    this.id = options.id || "unknown";
 }
 
