@@ -25,8 +25,8 @@ var MSG_UPDATE_VEHICLE = 'updateVehicle';
 var MSG_GET_VEHICLES = 'getVehicles';
 var MSG_VEHICLES = 'vehicles';
 
-var MSG_VEHICLE_TELEMETERY = 'vehicleTelemetery';
-var MSG_GET_TELEMETERY = 'getVehicleTelemetery';
+var MSG_VEHICLE_TELEMETRY = 'vehicleTelemetry';
+var MSG_GET_TELEMETRY = 'getVehicleTelemetry';
 
 var MSG_AUTHENTICATE = 'authenticate';
 var MSG_AUTHENTICATION_ACCEPTED = 'authenticationAccepted';
