@@ -59,32 +59,24 @@ var Vehicle = function (options) {
     this.deviceType = options.deviceType || VEHICLE_DEVICE_PARROT_V1;
     
     // check that the type if valid, if not then assign to the first entry
-    this.isTypeValid = false;
+    var isTypeValid = false;
     
     for(var i in vehicleValidTypes) {
         if(this.type == vehicleValidTypes[i]) {
-          this.isTypeValid = true;
+          isTypeValid = true;
           break;
         }
     }
-    if(!this.isTypeValid) {
+
+    if(!isTypeValid) {
         this.type = VEHICLE_AIR;
     }
     
-    this.navigationEnabled = options.navigationEnabled || false;
-    this.remoteControlEnabled = options.remoteControlEnabled || false;
+    this.navigationEnabled = ((options.navigationEnabled != null) ? options.navigationEnabled : false);
+    this.remoteControlEnabled = ((options.remoteControlEnabled != null) ? options.remoteControlEnabled : true);
 
     this.navigationPath = options.navigationPath || new Path();
     this.actualPath = options.actualPath || new Path();
     
-    this.heading = options.heading || 0;
-    this.speed = options.speed || 0;
-    this.roll = options.roll || 0;         // x axis
-    this.pitch = options.pitch || 0;       // y axis
-    this.yaw = options.yaw || 0;           // z axis
-    this.maxSpeed = options.maxSpeed || 100;
-    this.speedUom = options.speedUom || VEHICLE_UOM_KMH;
-}
-
-var Path = function (options) {
+    this.telemetry = options.telemetry || new Telemtry();
 }
