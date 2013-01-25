@@ -78,5 +78,5 @@ var Vehicle = function (options) {
     this.navigationPath = options.navigationPath || new Path();
     this.actualPath = options.actualPath || new Path();
     
-    this.telemetry = options.telemetry || new Telemtry();
+    this.telemetry = options.telemetry || new Telemetry();
 }
