@@ -28,6 +28,8 @@ var MSG_VEHICLES = 'vehicles';
 var MSG_VEHICLE_TELEMETRY = 'vehicleTelemetry';
 var MSG_GET_TELEMETRY = 'getVehicleTelemetry';
 
+var MSG_DRONES = 'drones';
+
 var MSG_AUTHENTICATE = 'authenticate';
 var MSG_AUTHENTICATION_ACCEPTED = 'authenticationAccepted';
 var MSG_AUTHENTICATION_REJECTED = 'authenticationRejected';
