@@ -19,7 +19,7 @@
 // "use strict"
 
 if(typeof exports == "undefined") {
-    exports = this;
+    var exports = this['droneCapabilities'] = {};
 }
 
 var DroneCapabilities = function (options) {
@@ -43,4 +43,4 @@ var DroneCapabilities = function (options) {
     this.batteryCharge = ((options.batteryCharge != null) ? options.batteryCharge : false);
 }
 
-exports.DroneCapabilities = new DroneCapabilities();
+exports.DroneCapabilities = DroneCapabilities;
