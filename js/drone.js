@@ -24,7 +24,9 @@ if(typeof module == "undefined"){
     module.exports = exports;
 }
 
-var Drone = function (options) {
+module.exports = Drone;
+
+function Drone(options) {
     
     options = options || {};
     
@@ -39,4 +41,3 @@ Drone.DEVICE_UNKNOWN = 'unknown';
 Drone.DEVICE_PARROT_V1 = 'parrot.v1';
 Drone.DEVICE_PARROT_V2 = 'parrot.v2';
 
-module.exports = Drone;

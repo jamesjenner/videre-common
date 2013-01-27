@@ -24,7 +24,9 @@ if(typeof module == "undefined"){
     module.exports = exports;
 }
 
-var DroneCapabilities = function (options) {
+module.exports = DroneCapabilities;
+
+function DroneCapabilities(options) {
     
     options = options || {};
 
@@ -45,4 +47,3 @@ var DroneCapabilities = function (options) {
     this.batteryCharge = ((options.batteryCharge != null) ? options.batteryCharge : false);
 }
 
-module.exports = DroneCapabilities;
