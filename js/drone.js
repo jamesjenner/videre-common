@@ -18,8 +18,10 @@
 
 // "use strict"
 
-if(typeof exports == "undefined") {
-    exports = this['drone'] = {};
+if(typeof module == "undefined"){
+    var module = function(){};
+    var exports = this['drone'] = {};
+    module.exports = exports;
 }
 
 var Drone = function (options) {
@@ -37,4 +39,4 @@ Drone.DEVICE_UNKNOWN = 'unknown';
 Drone.DEVICE_PARROT_V1 = 'parrot.v1';
 Drone.DEVICE_PARROT_V2 = 'parrot.v2';
 
-exports.Drone = Drone;
+module.exports.Drone = Drone;

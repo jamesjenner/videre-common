@@ -18,8 +18,10 @@
 
 // "use strict"
 
-if(typeof exports == "undefined") {
+if(typeof module == "undefined"){
+    var module = function(){};
     var exports = this['droneCapabilities'] = {};
+    module.exports = exports;
 }
 
 var DroneCapabilities = function (options) {
@@ -43,4 +45,4 @@ var DroneCapabilities = function (options) {
     this.batteryCharge = ((options.batteryCharge != null) ? options.batteryCharge : false);
 }
 
-exports.DroneCapabilities = DroneCapabilities;
+module.exports.DroneCapabilities = DroneCapabilities;
