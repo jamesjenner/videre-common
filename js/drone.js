@@ -39,4 +39,4 @@ Drone.DEVICE_UNKNOWN = 'unknown';
 Drone.DEVICE_PARROT_V1 = 'parrot.v1';
 Drone.DEVICE_PARROT_V2 = 'parrot.v2';
 
-module.exports.Drone = Drone;
+module.exports = Drone;

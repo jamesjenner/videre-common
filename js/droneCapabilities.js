@@ -45,4 +45,4 @@ var DroneCapabilities = function (options) {
     this.batteryCharge = ((options.batteryCharge != null) ? options.batteryCharge : false);
 }
 
-module.exports.DroneCapabilities = DroneCapabilities;
+module.exports = DroneCapabilities;
