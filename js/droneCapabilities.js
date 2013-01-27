@@ -18,6 +18,10 @@
 
 // "use strict"
 
+if(typeof exports == "undefined") {
+    exports = this;
+}
+
 var DroneCapabilities = function (options) {
     
     options = options || {};
@@ -38,3 +42,5 @@ var DroneCapabilities = function (options) {
     this.batteryVoltage = ((options.batteryVoltage != null) ? options.batteryVoltage : false);
     this.batteryCharge = ((options.batteryCharge != null) ? options.batteryCharge : false);
 }
+
+exports.DroneCapabilities = new DroneCapabilities();

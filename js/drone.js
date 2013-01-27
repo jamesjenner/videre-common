@@ -1,5 +1,5 @@
 /*
- * drone.js v0.1 alpha
+ * drone.js
  *
  * Copyright (c) 2012 James G Jenner
  *
@@ -18,6 +18,10 @@
 
 // "use strict"
 
+if(typeof exports == "undefined") {
+    exports = this;
+}
+
 var Drone = function (options) {
     
     options = options || {};
@@ -32,3 +36,5 @@ var Drone = function (options) {
 Drone.DEVICE_UNKNOWN = 'unknown';
 Drone.DEVICE_PARROT_V1 = 'parrot.v1';
 Drone.DEVICE_PARROT_V2 = 'parrot.v2';
+
+exports.Drone = new Drone();
