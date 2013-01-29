@@ -1,5 +1,5 @@
 /*
- * vehicle.js v0.1 alpha
+ * vehicle.js
  *
  * Copyright (c) 2012 James G Jenner
  *
@@ -18,58 +18,69 @@
 
 // "use strict"
 
-var VEHICLE_AIR = 'Air';
-var VEHICLE_SURFACE = 'Surface';
-var VEHICLE_SUBMERSIBLE = 'Submersible';
+if(typeof module == "undefined"){
+    var module = function(){};
+    var exports = this['vehicle'] = {};
+    module.exports = exports;
+}
+if (typeof require != "undefined") {
+    var Telemetry = require('./telemetry');
+    var Path = require('./path');
+}
 
-var VEHICLE_KEY_AIR = 'air';
-var VEHICLE_KEY_SURFACE = 'surface';
-var VEHICLE_KEY_SUBMERSIBLE = 'submersible';
+module.exports = Vehicle;
 
-var VEHICLE_KEY = 'Vehicle';
-var VEHICLE_DEFAULT_NAME = 'Thunderbird 1';
+Vehicle.TYPE_AIR = 'Air';
+Vehicle.TYPE_SURFACE = 'Surface';
+Vehicle.TYPE_SUBMERSIBLE = 'Submersible';
 
-var VEHICLE_UOM_KMH = 'kilometersPerHour';
-var VEHICLE_UOM_MH = 'milesPerHour';
-var VEHICLE_UOM_MS = 'metersPerSecond';
+Vehicle.TYPE_KEY_AIR = 'air';
+Vehicle.TYPE_KEY_SURFACE = 'surface';
+Vehicle.TYPE_KEY_SUBMERSIBLE = 'submersible';
 
-var VEHICLE_DEVICE_PARROT_V1 = 'parrot.v1';
-var VEHICLE_DEVICE_PARROT_V2 = 'parrot.v2';
+Vehicle.KEY = 'Vehicle';
+Vehicle.DEFAULT_NAME = 'Thunderbird 1';
 
-var VEHICLE_DISCONNECTED = 0;
-var VEHICLE_CONNECTED = 1;
-var VEHICLE_RECONNECTING = 2;
-var VEHICLE_DISCONNECTING = 3;
+Vehicle.UOM_KMH = 'kilometersPerHour';
+Vehicle.UOM_MH = 'milesPerHour';
+Vehicle.UOM_MS = 'metersPerSecond';
 
-var vehicleValidTypes = new Object();
-vehicleValidTypes[VEHICLE_KEY_AIR] = 'Air';
-vehicleValidTypes[VEHICLE_KEY_SURFACE] = 'Surface';
-vehicleValidTypes[VEHICLE_KEY_SUBMERSIBLE] = 'Submersible';
+Vehicle.DEVICE_PARROT_V1 = 'parrot.v1';
+Vehicle.DEVICE_PARROT_V2 = 'parrot.v2';
 
-var Vehicle = function (options) {
-    
+Vehicle.COMMS_DISCONNECTED = 0;
+Vehicle.COMMS_CONNECTED = 1;
+Vehicle.COMMS_RECONNECTING = 2;
+Vehicle.COMMS_DISCONNECTING = 3;
+
+Vehicle.validTypes = new Object();
+Vehicle.validTypes[Vehicle.TYPE_KEY_AIR] = 'Air';
+Vehicle.validTypes[Vehicle.TYPE_KEY_SURFACE] = 'Surface';
+Vehicle.validTypes[Vehicle.TYPE_KEY_SUBMERSIBLE] = 'Submersible';
+
+function Vehicle(options) {
     options = options || {};
     
-    this.connectionStatus = options.connectionStatus || VEHICLE_DISCONNECTED;
+    this.connectionStatus = options.connectionStatus || Vehicle.VEHICLE_DISCONNECTED;
     this.position = options.position || 0;
     
-    this.name = options.name || VEHICLE_DEFAULT_NAME;
+    this.name = options.name || Vehicle.DEFAULT_NAME;
     this.id = options.id || "none";
-    this.type = options.type || VEHICLE_AIR;
-    this.deviceType = options.deviceType || VEHICLE_DEVICE_PARROT_V1;
+    this.type = options.type || Vehicle.VEHICLE_AIR;
+    this.deviceType = options.deviceType || Vehicle.DEVICE_PARROT_V1;
     
     // check that the type if valid, if not then assign to the first entry
     var isTypeValid = false;
     
-    for(var i in vehicleValidTypes) {
-        if(this.type == vehicleValidTypes[i]) {
+    for(var i in Vehicle.validTypes) {
+        if(this.type == Vehicle.validTypes[i]) {
           isTypeValid = true;
           break;
         }
     }
 
     if(!isTypeValid) {
-        this.type = VEHICLE_AIR;
+        this.type = Vehicle.VEHICLE_AIR;
     }
     
     this.navigationEnabled = ((options.navigationEnabled != null) ? options.navigationEnabled : false);
