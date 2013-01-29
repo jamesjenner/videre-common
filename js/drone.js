@@ -18,16 +18,22 @@
 
 // "use strict"
 
-if(typeof module == "undefined"){
+if (typeof module == "undefined"){
     var module = function(){};
     var exports = this['drone'] = {};
     module.exports = exports;
 }
+if (typeof require != "undefined") {
+    var DroneCapabilities = require('./droneCapabilities');
+}
 
 module.exports = Drone;
 
+Drone.DEVICE_UNKNOWN = 'unknown';
+Drone.DEVICE_PARROT_V1 = 'parrot.v1';
+Drone.DEVICE_PARROT_V2 = 'parrot.v2';
+
 function Drone(options) {
-    
     options = options || {};
     
     this.name = options.name || "no name";
@@ -36,8 +42,3 @@ function Drone(options) {
 
     this.capabilities = options.capabilities || new DroneCapabilities();
 }
-
-Drone.DEVICE_UNKNOWN = 'unknown';
-Drone.DEVICE_PARROT_V1 = 'parrot.v1';
-Drone.DEVICE_PARROT_V2 = 'parrot.v2';
-

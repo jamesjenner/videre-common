@@ -1,5 +1,5 @@
 /*
- * path.js v0.1 alpha
+ * path.js
  *
  * Copyright (c) 2012 James G Jenner
  *
@@ -18,5 +18,70 @@
 
 // "use strict"
 
-var Path = function (options) {
+if(typeof module == "undefined"){
+    var module = function(){};
+    var exports = this['path'] = {};
+    module.exports = exports;
+}
+if (typeof require != "undefined") {
+    var Position = require('./point');
+}
+
+module.exports = Path;
+
+function Path(options) {
+    options = options || {};
+
+    this.points = options.points || new Array();
+}
+
+/* 
+ * insert(number, point)   inserts a point at the specified number within the path
+ *
+ * Will appened if the number larger than the number of points
+ */
+Path.prototype.insert = function(idx, point) {
+    if(idx >= this.points.length) {
+	this.append(point);
+    } else {
+        // TODO: add insert logic
+	reorder(idx);
+    }
+}
+
+/* 
+ * append(point)   adds a point to the end of the path
+ */
+Path.prototype.append = function(point) {
+    point.sequence = this.points.length;
+    this.points[this.points.length] = point;
+}
+
+/* 
+ * delete(idx)   removes an existing point from the path
+ */
+Path.prototype.delete = function(idx) {
+    if(idx < this.points.length) {
+	this.points.splice(idx, 1);
+
+	reorder(idx);
+    }
+}
+
+/* 
+ * update(point)   update a point on the path
+ */
+Path.prototype.update = function(idx, point) {
+    if(idx < this.points.length) {
+	point.sequence = idx;
+	this.points[idx] = point;
+    }
+}
+
+var reorder = function(from) {
+    from = from || 0;
+
+    for(i = from, l = this.points.length; i < l; i++) {
+	this.points[i].sequence = i;
+    }
 }

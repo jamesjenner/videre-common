@@ -1,5 +1,5 @@
 /*
- * position.js v0.1 alpha
+ * position.js
  *
  * Copyright (c) 2012 James G Jenner
  *
@@ -18,7 +18,15 @@
 
 // "use strict"
 
-var Position = function (options) {
+if(typeof module == "undefined"){
+    var module = function(){};
+    var exports = this['position'] = {};
+    module.exports = exports;
+}
+
+module.exports = Position;
+
+function Position(options) {
     options = options || {};
 
     this.latitude = options.latitude || 0;

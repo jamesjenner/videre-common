@@ -27,7 +27,6 @@ if(typeof module == "undefined"){
 module.exports = DroneCapabilities;
 
 function DroneCapabilities(options) {
-    
     options = options || {};
 
     // capabilities for telemetry reporting

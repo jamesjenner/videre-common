@@ -1,5 +1,5 @@
 /*
- * payload.js v0.1 alpha
+ * payload.js
  *
  * Copyright (c) 2012 James G Jenner
  *
@@ -18,7 +18,15 @@
 
 // "use strict"
 
-var Payload = function (options) {
+if(typeof module == "undefined"){
+    var module = function(){};
+    var exports = this['payload'] = {};
+    module.exports = exports;
+}
+
+module.exports = Payload;
+
+function Payload (options) {
     options = options || {};
 
     this.name = options.name || "unknown";
