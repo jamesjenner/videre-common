@@ -1,5 +1,5 @@
 /*
- * attitude.js
+ * point.js
  *
  * Copyright (c) 2012 James G Jenner
  *
@@ -20,20 +20,23 @@
 
 if(typeof module == "undefined"){
     var module = function(){};
-    var exports = this['attitude'] = {};
+    var exports = this['point'] = {};
     module.exports = exports;
 }
+if (typeof require != "undefined") {
+    var Position = require('./position');
+}
 
-module.exports = Attitude;
+module.exports = Point;
 
-function Attitude(options) {
+function Point(options) {
     options = options || {};
 
-    this.pitch = options.pitch | 0;
-    this.roll = options.roll | 0;
-    this.yaw = options.yaw | 0;
-
-    this.x = this.pitch;
-    this.y = this.roll;
-    this.z = this.yaw;
+    this.position = options.position || new Position();
+    this.sequence = options.sequence || 0;
+    this.altitude = options.altitude || 0;
+    this.isHome = ((options.isHome != null) ? options.isHome : false);
+    this.loiter = ((options.loiter != null) ? options.loiter : false);
+    this.loiterTime = options.loiterTime || 0;
+    this.loiterRadius = options.loiterRadius || 0;
 }
