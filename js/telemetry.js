@@ -1,5 +1,5 @@
 /*
- * telemetry.js v0.1 alpha
+ * telemetry.js
  *
  * Copyright (c) 2012 James G Jenner
  *
@@ -18,7 +18,30 @@
 
 // "use strict"
 
-var Telemetry = function (options) {
+if(typeof module == "undefined"){
+    var module = function(){};
+    var exports = this['telemetry'] = {};
+    module.exports = exports;
+}
+if (typeof require != "undefined") {
+    var Attitude = require('./attitude');
+    var Position = require('./position');
+}
+
+module.exports = Telemetry;
+
+Telemetry.STATE_LANDED = 0;
+Telemetry.STATE_LANDING = 1;
+Telemetry.STATE_TAKING_OFF = 2;
+Telemetry.STATE_HOVERING = 3;
+Telemetry.STATE_ABORTED = 4;
+Telemetry.STATE_FLYING = 5;
+Telemetry.STATE_TEST_MODE = 6;
+Telemetry.STATE_IDLE = 7;
+Telemetry.STATE_AUTONOMOUS = 7;
+Telemetry.STATE_UNKNOWN = -1;
+
+function Telemetry(options) {
     options = options || {};
     
     this.name = options.name || "unknown";
@@ -36,14 +59,3 @@ var Telemetry = function (options) {
     this.batteryVoltage = options.batteryVoltage || 0;
     this.batteryCharge = options.batteryCharge || 0;
 }
-
-Telemetry.STATE_LANDED = 0;
-Telemetry.STATE_LANDING = 1;
-Telemetry.STATE_TAKING_OFF = 2;
-Telemetry.STATE_HOVERING = 3;
-Telemetry.STATE_ABORTED = 4;
-Telemetry.STATE_FLYING = 5;
-Telemetry.STATE_TEST_MODE = 6;
-Telemetry.STATE_IDLE = 7;
-Telemetry.STATE_AUTONOMOUS = 7;
-Telemetry.STATE_UNKNOWN = -1;
