@@ -1,5 +1,5 @@
 /*
- * videre_comms.js v0.1 alpha
+ * message.js
  *
  * Copyright (c) 2012 James G Jenner
  *
@@ -18,54 +18,62 @@
 
 // "use strict"
 
-var MSG_UNKNOWN = '__unknown';
-var MSG_ADD_VEHICLE = 'addVehicle';
-var MSG_DELETE_VEHICLE = 'deleteVehicle';
-var MSG_UPDATE_VEHICLE = 'updateVehicle';
-var MSG_GET_VEHICLES = 'getVehicles';
-var MSG_VEHICLES = 'vehicles';
+if(typeof module == "undefined"){
+    var module = function(){};
+    var exports = this['message'] = {};
+    module.exports = exports;
+}
 
-var MSG_VEHICLE_TELEMETRY = 'vehicleTelemetry';
-var MSG_GET_TELEMETRY = 'getVehicleTelemetry';
+module.exports = Message;
 
-var MSG_DRONES = 'drones';
+Message.UNKNOWN = '__unknown';
+Message.ADD_VEHICLE = 'addVehicle';
+Message.DELETE_VEHICLE = 'deleteVehicle';
+Message.UPDATE_VEHICLE = 'updateVehicle';
+Message.GET_VEHICLES = 'getVehicles';
+Message.VEHICLES = 'vehicles';
 
-var MSG_AUTHENTICATE = 'authenticate';
-var MSG_AUTHENTICATION_ACCEPTED = 'authenticationAccepted';
-var MSG_AUTHENTICATION_REJECTED = 'authenticationRejected';
-var MSG_CHANGE_PWD = 'changePwd';
+Message.VEHICLE_TELEMETRY = 'vehicleTelemetry';
+Message.GET_TELEMETRY = 'getVehicleTelemetry';
 
-var MSG_SESSION = 'session';
-var MSG_SESSION_CONFIRMED = 'sessionConfirmed';
-var MSG_REQUEST_SESSION = 'requestSession';
+Message.DRONES = 'drones';
 
-var COMMS_TYPE_SECURE_ONLY = 'secureOnly';
-var COMMS_TYPE_UNSECURE_ONLY = 'unsecureOnly';
-var COMMS_TYPE_MIXED = 'mixed';
+Message.AUTHENTICATE = 'authenticate';
+Message.AUTHENTICATION_ACCEPTED = 'authenticationAccepted';
+Message.AUTHENTICATION_REJECTED = 'authenticationRejected';
+Message.CHANGE_PWD = 'changePwd';
 
-var MSG_VEHICLE_PAYLOAD = 'vehiclePayload';
-var MSG_GET_PAYLOAD = 'getVehiclePayload';
+Message.SESSION = 'session';
+Message.SESSION_CONFIRMED = 'sessionConfirmed';
+Message.REQUEST_SESSION = 'requestSession';
 
-var MSG_CMD_EMERGENCY_STOP = 'cmdAbort';
-var MSG_CMD_LEFT = 'cmdLeft';
-var MSG_CMD_RIGHT = 'cmdRight';
-var MSG_CMD_TURN_LEFT = 'cmdTurnLeft';
-var MSG_CMD_TURN_RIGHT = 'cmdTurnRight';
-var MSG_CMD_FORWARD = 'cmdForward';
-var MSG_CMD_REVERSE = 'cmdReverse';
-var MSG_CMD_UP = 'cmdUp';
-var MSG_CMD_DOWN = 'cmdDown';
+Message.COMMS_TYPE_SECURE_ONLY = 'secureOnly';
+Message.COMMS_TYPE_UNSECURE_ONLY = 'unsecureOnly';
+Message.COMMS_TYPE_MIXED = 'mixed';
 
-var MSG_CMD_ON = 'cmdOn';
-var MSG_CMD_OFF = 'cmdOff';
+Message.VEHICLE_PAYLOAD = 'vehiclePayload';
+Message.GET_PAYLOAD = 'getVehiclePayload';
 
-var MSG_CMD_LAND = 'cmdLand';
-var MSG_CMD_TAKEOFF = 'cmdTakeoff';
+Message.CMD_EMERGENCY_STOP = 'cmdAbort';
+Message.CMD_LEFT = 'cmdLeft';
+Message.CMD_RIGHT = 'cmdRight';
+Message.CMD_TURN_LEFT = 'cmdTurnLeft';
+Message.CMD_TURN_RIGHT = 'cmdTurnRight';
+Message.CMD_FORWARD = 'cmdForward';
+Message.CMD_REVERSE = 'cmdReverse';
+Message.CMD_UP = 'cmdUp';
+Message.CMD_DOWN = 'cmdDown';
 
-var Message = function (data) {
+Message.CMD_ON = 'cmdOn';
+Message.CMD_OFF = 'cmdOff';
+
+Message.CMD_LAND = 'cmdLand';
+Message.CMD_TAKEOFF = 'cmdTakeoff';
+
+function Message(data) {
     data = data || {};
 	     
-    this.id = data.id || MSG_UNKNOWN;
+    this.id = data.id || Message.UNKNOWN;
     this.body = data.body || null;
 };
 
