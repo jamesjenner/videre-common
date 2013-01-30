@@ -86,8 +86,33 @@ function Vehicle(options) {
     this.navigationEnabled = ((options.navigationEnabled != null) ? options.navigationEnabled : false);
     this.remoteControlEnabled = ((options.remoteControlEnabled != null) ? options.remoteControlEnabled : true);
 
-    this.navigationPath = options.navigationPath || new Path();
-    this.actualPath = options.actualPath || new Path();
+    // create the paths as a new instance, as often it's just JSON parsed data which doesn't hold the object
+    if(options.navigationPath) {
+	if(options.navigationPath instanceof Path) {
+	    this.navigationPath = options.navigationPath;
+	} else {
+	    this.navigationPath = new Path(options.navigationPath);
+	}
+    } else {
+	this.navigationPath = new Path();
+    }
+    if(options.actualPath) {
+	if(options.actualPath instanceof Path) {
+	    this.actualPath = options.actualPath;
+	} else {
+	    this.actualPath = new Path(options.actualPath);
+	}
+    } else {
+	this.actualPath = new Path();
+    }
     
-    this.telemetry = options.telemetry || new Telemetry();
+    if(options.telemetry) {
+	if(options.telemetry instanceof Telemetry) {
+	    this.telemetry = options.telemetry;
+	} else {
+	    this.telemetry = new Telemetry(options.telemetry);
+	}
+    } else {
+	this.telemetry = new Telemetry();
+    }
 }
