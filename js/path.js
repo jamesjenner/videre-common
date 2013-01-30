@@ -24,7 +24,7 @@ if(typeof module == "undefined"){
     module.exports = exports;
 }
 if (typeof require != "undefined") {
-    var Position = require('./point');
+    var Point = require('./point');
 }
 
 module.exports = Path;
@@ -56,25 +56,43 @@ Path.prototype.isEmpty = function() {
 }
 
 /* 
- * insert(number, point)   inserts a point at the specified number within the path
+ * insert(number, lat, lng, options)   inserts a point at the specified number within the path
  *
  * Will appened if the number larger than the number of points
  */
-Path.prototype.insert = function(idx, point) {
+Path.prototype.insert = function(idx, lat, lng, options) {
+
     if(idx >= this.points.length) {
-	this.append(point);
+	this.append(lat, lng, options);
     } else {
+        var point = new Point(lat, lng, options);
+
         // TODO: add insert logic
+
 	reorder(idx);
     }
 }
 
 /* 
- * append(point)   adds a point to the end of the path
+ * append(lat, lng)   adds a point to the end of the path
  */
-Path.prototype.append = function(point) {
+Path.prototype.append = function(lat, lng, options) {
+    var point = new Point(lat, lng, options);
     point.sequence = this.points.length;
     this.points[this.points.length] = point;
+}
+
+/* 
+ * toArray()   returns the current path as an array of the points where each entry is an array of lat, lng
+ */
+Path.prototype.toArray = function() {
+    var array = new Array();
+
+    for(var i = 0, l = this.points.length; i < l; i++) {
+	array.push([this.points[i].position.lat, this.points[i].position.lng]);
+    }
+
+    return array;
 }
 
 /* 
@@ -91,10 +109,10 @@ Path.prototype.delete = function(idx) {
 /* 
  * update(point)   update a point on the path
  */
-Path.prototype.update = function(idx, point) {
+Path.prototype.update = function(idx, lat, lng, options) {
     if(idx < this.points.length) {
 	point.sequence = idx;
-	this.points[idx] = point;
+	this.points[idx] = new Point(lat, lng, options);
     }
 }
 
