@@ -89,7 +89,7 @@ Path.prototype.toArray = function() {
     var array = new Array();
 
     for(var i = 0, l = this.points.length; i < l; i++) {
-	array.push([this.points[i].position.lat, this.points[i].position.lng]);
+	array.push([this.points[i].position.latitude, this.points[i].position.longitude]);
     }
 
     return array;
