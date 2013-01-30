@@ -36,6 +36,26 @@ function Path(options) {
 }
 
 /* 
+ * length()   returns the length of the path, based on the number of points
+ *
+ */
+Path.prototype.length = function() {
+    if(!this.points) {
+	return 0;
+    } else {
+	return this.points.length;
+    }
+}
+
+/* 
+ * isEmpty()   returns true if no points exist on the path, otherwise false
+ *
+ */
+Path.prototype.isEmpty = function() {
+    return !(this.points && this.points.length > 0);
+}
+
+/* 
  * insert(number, point)   inserts a point at the specified number within the path
  *
  * Will appened if the number larger than the number of points
