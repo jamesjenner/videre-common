@@ -29,10 +29,10 @@ if (typeof require != "undefined") {
 
 module.exports = Point;
 
-function Point(options) {
+function Point(lat, lng, options) {
     options = options || {};
 
-    this.position = options.position || new Position();
+    this.position = new Position(lat, lng);
     this.sequence = options.sequence || 0;
     this.altitude = options.altitude || 0;
     this.isHome = ((options.isHome != null) ? options.isHome : false);
