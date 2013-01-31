@@ -119,12 +119,22 @@ Path.prototype.delete = function(idx) {
 }
 
 /* 
- * update(point)   update a point on the path
+ * updatePointPos(idx, lat, lng)   update the position of a point on the path
  */
-Path.prototype.update = function(idx, lat, lng, options) {
+Path.prototype.updatePointPos = function(idx, lat, lng) {
+    if(idx < this.points.length) {
+	this.points[idx].position.latitude = lat;
+	this.points[idx].position.longitude = lng;
+    }
+}
+
+/* 
+ * replacePoint(idx, point)   replaces the point on the path for the specified position
+ */
+Path.prototype.replacePoint = function(idx, point) {
     if(idx < this.points.length) {
 	point.sequence = idx;
-	this.points[idx] = new Point(lat, lng, options);
+	this.points[idx] = point;
     }
 }
 
