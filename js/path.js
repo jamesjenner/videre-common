@@ -48,6 +48,18 @@ Path.prototype.length = function() {
 }
 
 /* 
+ * getPoint()   returns the specified point on the path
+ *
+ */
+Path.prototype.getPoint = function(i) {
+    if(!this.points || this.points.length <= i) {
+	return null;
+    } else {
+	return this.points[i];
+    }
+}
+
+/* 
  * isEmpty()   returns true if no points exist on the path, otherwise false
  *
  */
