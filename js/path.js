@@ -77,11 +77,13 @@ Path.prototype.insert = function(idx, lat, lng, options) {
     if(idx >= this.points.length) {
 	this.append(lat, lng, options);
     } else {
+	// create the point
         var point = new Point(lat, lng, options);
 
-        // TODO: add insert logic
+	// splice in the new point
+        this.points.splice(idx, 0, point);
 
-	reorder(idx);
+	this.points = reorder(idx, this.points);
     }
 }
 
@@ -114,7 +116,7 @@ Path.prototype.delete = function(idx) {
     if(idx < this.points.length) {
 	this.points.splice(idx, 1);
 
-	reorder(idx);
+	this.points = reorder(idx - 1, this.points);
     }
 }
 
@@ -138,10 +140,12 @@ Path.prototype.replacePoint = function(idx, point) {
     }
 }
 
-var reorder = function(from) {
+var reorder = function(from, points) {
     from = from || 0;
 
-    for(i = from, l = this.points.length; i < l; i++) {
-	this.points[i].sequence = i;
+    for(i = from, l = points.length; i < l; i++) {
+	points[i].sequence = i;
     }
+
+    return points;
 }
