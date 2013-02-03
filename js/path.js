@@ -172,7 +172,6 @@ Path.prototype.complete = function() {
 	return false;
     }
 }
-}
 
 var reorder = function(from, points) {
     from = from || 0;
