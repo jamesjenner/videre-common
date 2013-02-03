@@ -140,6 +140,40 @@ Path.prototype.replacePoint = function(idx, point) {
     }
 }
 
+/* 
+ * returnsHome()   true if the last point returns home, otherwise false
+ */
+Path.prototype.returnsHome = function() {
+    if(this.points.length > 0) { 
+        return this.points[this.points.length].returnHome;
+    } else {
+	return false;
+    }
+}
+
+/* 
+ * terminates()   true if the last point is terminus, otherwise false
+ */
+Path.prototype.terminates = function() {
+    if(this.points.length > 0) { 
+        return this.points[this.points.length].terminus;
+    } else {
+	return false;
+    }
+}
+
+/* 
+ * complete()   true if the path is complete
+ */
+Path.prototype.complete = function() {
+    if(this.points.length > 0) { 
+        return this.points[this.points.length].terminus || this.points[this.points.length].returnHome;
+    } else {
+	return false;
+    }
+}
+}
+
 var reorder = function(from, points) {
     from = from || 0;
 
@@ -149,3 +183,4 @@ var reorder = function(from, points) {
 
     return points;
 }
+
