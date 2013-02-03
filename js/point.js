@@ -39,4 +39,5 @@ function Point(lat, lng, options) {
     this.loiter = ((options.loiter != null) ? options.loiter : false);
     this.loiterTime = options.loiterTime || 0;
     this.loiterRadius = options.loiterRadius || 0;
+    this.terminus = ((options.terminus != null) ? options.terminus : false);
 }
