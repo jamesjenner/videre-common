@@ -172,5 +172,16 @@ describe('Path', function(){
       expect(path.getPoint(2).position.latitude).toEqual(1);
       expect(path.getPoint(2).position.longitude).toEqual(2);
     });
+    it('clearing the path', function() {
+      var pointsArray = new Array(new Point(1,2),new Point(3,4),new Point(5,6));
+      var path = new Path({points: pointsArray});
+
+      expect(path.clear).toBeDefined();
+      expect(path.length()).toEqual(3);
+
+      path.clear();
+
+      expect(path.length()).toEqual(0);
+    });
   });
 });

@@ -110,6 +110,13 @@ Path.prototype.toArray = function() {
 }
 
 /* 
+ * clear()   removes all points on the path
+ */
+Path.prototype.clear = function(idx) {
+    this.points = new Array();
+}
+
+/* 
  * delete(idx)   removes an existing point from the path
  */
 Path.prototype.delete = function(idx) {
