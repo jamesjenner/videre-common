@@ -145,7 +145,7 @@ Path.prototype.replacePoint = function(idx, point) {
  */
 Path.prototype.returnsHome = function() {
     if(this.points.length > 0) { 
-        return this.points[this.points.length].returnHome;
+        return this.points[this.points.length - 1].returnHome;
     } else {
 	return false;
     }
@@ -156,7 +156,7 @@ Path.prototype.returnsHome = function() {
  */
 Path.prototype.terminates = function() {
     if(this.points.length > 0) { 
-        return this.points[this.points.length].terminus;
+        return this.points[this.points.length - 1].terminus;
     } else {
 	return false;
     }
@@ -167,10 +167,28 @@ Path.prototype.terminates = function() {
  */
 Path.prototype.complete = function() {
     if(this.points.length > 0) { 
-        return this.points[this.points.length].terminus || this.points[this.points.length].returnHome;
+        return this.points[this.points.length - 1].terminus || this.points[this.points.length - 1].returnHome;
     } else {
 	return false;
     }
+}
+
+/* 
+ * reverse()   reverse the sequence of the points on the path
+ */
+Path.prototype.reverse = function() {
+    if(this.points.length < 1) { 
+	return;
+    }
+
+    var newPoints = new Array();
+
+    for(i = this.points.length - 1, r = 0; i > -1; i--, r++) {
+        this.points[i].sequence = r;
+	newPoints.push(this.points[i]);
+    }
+
+    this.points = newPoints;
 }
 
 var reorder = function(from, points) {

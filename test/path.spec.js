@@ -155,5 +155,22 @@ describe('Path', function(){
       expect(path.getPoint(2).position.latitude).toEqual(3);
       expect(path.getPoint(2).position.longitude).toEqual(3);
     });
+    it('reordering points', function() {
+      var pointsArray = new Array(new Point(1,2),new Point(3,4),new Point(5,6));
+      var path = new Path({points: pointsArray});
+
+      expect(path.reverse).toBeDefined();
+      expect(path.length()).toEqual(3);
+
+      path.reverse();
+
+      expect(path.length()).toEqual(3);
+      expect(path.getPoint(0).position.latitude).toEqual(5);
+      expect(path.getPoint(0).position.longitude).toEqual(6);
+      expect(path.getPoint(1).position.latitude).toEqual(3);
+      expect(path.getPoint(1).position.longitude).toEqual(4);
+      expect(path.getPoint(2).position.latitude).toEqual(1);
+      expect(path.getPoint(2).position.longitude).toEqual(2);
+    });
   });
 });
