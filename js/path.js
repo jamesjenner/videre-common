@@ -184,14 +184,17 @@ Path.prototype.complete = function() {
  * reverse()   reverse the sequence of the points on the path
  */
 Path.prototype.reverse = function() {
-    if(this.points.length < 1) { 
+    if(this.points.length < 1) {
 	return;
     }
 
     var newPoints = new Array();
 
-    for(i = this.points.length - 1, r = 0; i > -1; i--, r++) {
-        this.points[i].sequence = r;
+    // reverse the path, however the first point remains at 0, only reverse 1 to len - 1
+    newPoints.push(this.points[0]);
+
+    for(i = this.points.length - 1, r = 1; i > 0; i--, r++) {
+	this.points[i].sequence = r;
 	newPoints.push(this.points[i]);
     }
 

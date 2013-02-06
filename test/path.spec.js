@@ -165,12 +165,12 @@ describe('Path', function(){
       path.reverse();
 
       expect(path.length()).toEqual(3);
-      expect(path.getPoint(0).position.latitude).toEqual(5);
-      expect(path.getPoint(0).position.longitude).toEqual(6);
-      expect(path.getPoint(1).position.latitude).toEqual(3);
-      expect(path.getPoint(1).position.longitude).toEqual(4);
-      expect(path.getPoint(2).position.latitude).toEqual(1);
-      expect(path.getPoint(2).position.longitude).toEqual(2);
+      expect(path.getPoint(0).position.latitude).toEqual(1);
+      expect(path.getPoint(0).position.longitude).toEqual(2);
+      expect(path.getPoint(1).position.latitude).toEqual(5);
+      expect(path.getPoint(1).position.longitude).toEqual(6);
+      expect(path.getPoint(2).position.latitude).toEqual(3);
+      expect(path.getPoint(2).position.longitude).toEqual(4);
     });
     it('clearing the path', function() {
       var pointsArray = new Array(new Point(1,2),new Point(3,4),new Point(5,6));
