@@ -155,22 +155,103 @@ describe('Path', function(){
       expect(path.getPoint(2).position.latitude).toEqual(3);
       expect(path.getPoint(2).position.longitude).toEqual(3);
     });
-    it('reordering points', function() {
-      var pointsArray = new Array(new Point(1,2),new Point(3,4),new Point(5,6));
+    it('reordering points, final is return home', function() {
+      var pointsArray = new Array(
+	new Point(1,2, {altitude: 0}),
+	new Point(3,4, {altitude: 1}),
+	new Point(5,6, {altitude: 2}), 
+	new Point(7,8, {altitude: 3, terminus: false, returnHome: true}));
       var path = new Path({points: pointsArray});
 
+      // note: first point is the 'home' point and as such is not reverse, only points 1 to len - 1 are reversed
       expect(path.reverse).toBeDefined();
-      expect(path.length()).toEqual(3);
+      expect(path.length()).toEqual(4);
+
+      expect(path.getPoint(0).altitude).toEqual(0);
+      expect(path.getPoint(1).altitude).toEqual(1);
+      expect(path.getPoint(2).altitude).toEqual(2);
+      expect(path.getPoint(3).altitude).toEqual(3);
+
+      expect(path.getPoint(0).returnHome).toEqual(false);
+      expect(path.getPoint(1).returnHome).toEqual(false);
+      expect(path.getPoint(2).returnHome).toEqual(false);
+      expect(path.getPoint(3).returnHome).toEqual(true);
 
       path.reverse();
 
-      expect(path.length()).toEqual(3);
+      expect(path.length()).toEqual(4);
       expect(path.getPoint(0).position.latitude).toEqual(1);
       expect(path.getPoint(0).position.longitude).toEqual(2);
-      expect(path.getPoint(1).position.latitude).toEqual(5);
-      expect(path.getPoint(1).position.longitude).toEqual(6);
-      expect(path.getPoint(2).position.latitude).toEqual(3);
-      expect(path.getPoint(2).position.longitude).toEqual(4);
+      expect(path.getPoint(1).position.latitude).toEqual(7);
+      expect(path.getPoint(1).position.longitude).toEqual(8);
+      expect(path.getPoint(2).position.latitude).toEqual(5);
+      expect(path.getPoint(2).position.longitude).toEqual(6);
+      expect(path.getPoint(3).position.latitude).toEqual(3);
+      expect(path.getPoint(3).position.longitude).toEqual(4);
+
+      expect(path.getPoint(0).altitude).toEqual(0);
+      expect(path.getPoint(1).altitude).toEqual(3);
+      expect(path.getPoint(2).altitude).toEqual(2);
+      expect(path.getPoint(3).altitude).toEqual(1);
+
+      expect(path.getPoint(0).returnHome).toEqual(false);
+      expect(path.getPoint(1).returnHome).toEqual(false);
+      expect(path.getPoint(2).returnHome).toEqual(false);
+      expect(path.getPoint(3).returnHome).toEqual(true);
+    });
+    it('reordering points, final is terminus', function() {
+      var pointsArray = new Array(
+	new Point(1,2, {altitude: 0}),
+	new Point(3,4, {altitude: 1}),
+	new Point(5,6, {altitude: 2}), 
+	new Point(7,8, {altitude: 3, terminus: true, returnHome: false}));
+      var path = new Path({points: pointsArray});
+
+      // note: first point is the 'home' point and as such is not reverse, only points 1 to len - 1 are reversed
+      expect(path.reverse).toBeDefined();
+      expect(path.length()).toEqual(4);
+
+      expect(path.getPoint(0).altitude).toEqual(0);
+      expect(path.getPoint(1).altitude).toEqual(1);
+      expect(path.getPoint(2).altitude).toEqual(2);
+      expect(path.getPoint(3).altitude).toEqual(3);
+
+      expect(path.getPoint(0).returnHome).toEqual(false);
+      expect(path.getPoint(1).returnHome).toEqual(false);
+      expect(path.getPoint(2).returnHome).toEqual(false);
+      expect(path.getPoint(3).returnHome).toEqual(false);
+
+      expect(path.getPoint(0).terminus).toEqual(false);
+      expect(path.getPoint(1).terminus).toEqual(false);
+      expect(path.getPoint(2).terminus).toEqual(false);
+      expect(path.getPoint(3).terminus).toEqual(true);
+
+      path.reverse();
+
+      expect(path.length()).toEqual(4);
+      expect(path.getPoint(0).position.latitude).toEqual(1);
+      expect(path.getPoint(0).position.longitude).toEqual(2);
+      expect(path.getPoint(1).position.latitude).toEqual(7);
+      expect(path.getPoint(1).position.longitude).toEqual(8);
+      expect(path.getPoint(2).position.latitude).toEqual(5);
+      expect(path.getPoint(2).position.longitude).toEqual(6);
+      expect(path.getPoint(3).position.latitude).toEqual(3);
+      expect(path.getPoint(3).position.longitude).toEqual(4);
+
+      expect(path.getPoint(0).altitude).toEqual(0);
+      expect(path.getPoint(1).altitude).toEqual(3);
+      expect(path.getPoint(2).altitude).toEqual(2);
+      expect(path.getPoint(3).altitude).toEqual(1);
+
+      expect(path.getPoint(0).returnHome).toEqual(false);
+      expect(path.getPoint(1).returnHome).toEqual(false);
+      expect(path.getPoint(2).returnHome).toEqual(false);
+      expect(path.getPoint(3).returnHome).toEqual(false);
+
+      expect(path.getPoint(0).terminus).toEqual(false);
+      expect(path.getPoint(1).terminus).toEqual(false);
+      expect(path.getPoint(2).terminus).toEqual(false);
+      expect(path.getPoint(3).terminus).toEqual(true);
     });
     it('clearing the path', function() {
       var pointsArray = new Array(new Point(1,2),new Point(3,4),new Point(5,6));

@@ -198,6 +198,15 @@ Path.prototype.reverse = function() {
 	newPoints.push(this.points[i]);
     }
 
+    // set terminus and return home on the last point to what was the last point
+    if(newPoints.length > 1) {
+	newPoints[newPoints.length - 1].terminus = newPoints[1].terminus;
+	newPoints[newPoints.length - 1].returnHome = newPoints[1].returnHome;
+
+	newPoints[1].terminus = false;
+	newPoints[1].returnHome = false;
+    }
+
     this.points = newPoints;
 }
 
