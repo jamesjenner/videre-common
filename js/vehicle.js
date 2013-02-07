@@ -68,6 +68,8 @@ function Vehicle(options) {
     this.id = options.id || "none";
     this.type = options.type || Vehicle.VEHICLE_AIR;
     this.deviceType = options.deviceType || Vehicle.DEVICE_PARROT_V1;
+    this.onMap = ((options.onMap != null) ? options.onMap : false);
+    this.active = ((options.active != null) ? options.active : false);
     
     // check that the type if valid, if not then assign to the first entry
     var isTypeValid = false;
@@ -114,5 +116,32 @@ function Vehicle(options) {
 	}
     } else {
 	this.telemetry = new Telemetry();
+    }
+}
+
+/* 
+ * update vehicle
+ */
+Vehicle.update = function(data) {
+    if(this.connectionStatus ) {
+    	this.connectionStatus = data.connectionStatus;
+    }
+    if(data.name) {
+    	this.name = data.name;
+    }
+    if(data.type) {
+    	this.type = data.type;
+    }
+    if(data.deviceType) {
+    	this.deviceType = data.deviceType;
+    }
+    if(data.onMap != null) {
+    	this.onMap = data.onMap;
+    }
+    if(data.active != null) {
+    	this.active = data.active;
+    }
+    if(data.navigationPath) {
+        this.navigationPath = new Path(data.navigationPath);
     }
 }
