@@ -73,8 +73,8 @@ Message.CMD_TAKEOFF = 'cmdTakeoff';
 function Message(data) {
     data = data || {};
 	     
-    this.id = options.id === undefined ? Message.UNKNOWN : options.id;
-    this.body = options.body === undefined ? null : options.body;
+    this.id = data.id === undefined ? Message.UNKNOWN : data.id;
+    this.body = data.body === undefined ? null : data.body;
 };
 
 /* 
