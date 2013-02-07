@@ -33,12 +33,12 @@ function Point(lat, lng, options) {
     options = options || {};
 
     this.position = new Position(lat, lng);
-    this.sequence = options.sequence || 0;
-    this.altitude = options.altitude || 0;
-    this.isHome = ((options.isHome != null) ? options.isHome : false);
-    this.loiter = ((options.loiter != null) ? options.loiter : false);
-    this.loiterTime = options.loiterTime || 0;
-    this.loiterRadius = options.loiterRadius || 0;
-    this.returnHome = ((options.returnHome != null) ? options.returnHome : false);
-    this.terminus = ((options.terminus != null) ? options.terminus : false);
+    this.sequence = options.sequence === undefined ? 0 : options.sequence;
+    this.altitude = options.altitude === undefined ? 0 : options.altitude;
+    this.isHome = options.isHome === undefined ? false : options.isHome;
+    this.loiter = options.loiter === undefined ? false : options.loiter;
+    this.loiterTime = options.loiterTime === undefined ? 0 : options.loiterTime;
+    this.loiterRadius = options.loiterRadius === undefined ? 0 : options.loiterRadius;
+    this.returnHome = options.returnHome === undefined ? false : options.returnHome;
+    this.terminus  = options.terminus  === undefined ? false : options.terminus ;
 }

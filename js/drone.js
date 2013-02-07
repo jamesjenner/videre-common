@@ -36,9 +36,8 @@ Drone.DEVICE_PARROT_V2 = 'parrot.v2';
 function Drone(options) {
     options = options || {};
     
-    this.name = options.name || "no name";
-    this.device = options.device || Drone.DEVICE_UNKNOWN;
+    this.name = options.name === undefined ? "no name" : options.name;
+    this.device = options.device === undefined ? Drone.DEVICE_UNKNOWN : options.device;
     this.vehicelType = options.vehicleType;
-
-    this.capabilities = options.capabilities || new DroneCapabilities();
+    this.capabilities = options.capabilities === undefined ? new DroneCapabilities() : options.capabilities;
 }

@@ -44,18 +44,17 @@ Telemetry.STATE_UNKNOWN = -1;
 function Telemetry(options) {
     options = options || {};
     
-    this.name = options.name || "unknown";
-    this.id = options.id || "unknown";
-
-    this.state = options.state || '';
-    this.speed = options.speed || 0;
-    this.velocity = options.velocity || {x: 0, y: 0, z: 0};
-    this.attitude = options.attitude || new Attitude();
-    this.altitude = options.altitude || 0;
-    this.temperature = options.temperature || 0;
-    this.heading = options.heading || 0;
-    this.vsi = options.vsi || 0;
-    this.position = options.position || new Position();
-    this.batteryVoltage = options.batteryVoltage || 0;
-    this.batteryCharge = options.batteryCharge || 0;
+    this.name = options.name === undefined ? "unknown" : options.name;
+    this.id = options.id === undefined ? "unknown" : options.id;
+    this.state = options.state === undefined ? '' : options.state;
+    this.speed = options.speed === undefined ? 0 : options.speed;
+    this.velocity = options.velocity === undefined ? {x: 0, y: 0, z: 0} : options.velocity;
+    this.attitude = options.attitude === undefined ? new Attitude() : options.attitude;
+    this.altitude = options.altitude === undefined ? 0 : options.altitude;
+    this.temperature = options.temperature === undefined ? 0 : options.temperature;
+    this.heading = options.heading === undefined ? 0 : options.heading;
+    this.vsi = options.vsi === undefined ? 0 : options.vsi;
+    this.position = options.position === undefined ? new Position() : options.position;
+    this.batteryVoltage = options.batteryVoltage === undefined ? 0 : options.batteryVoltage;
+    this.batteryCharge = options.batteryCharge === undefined ? 0 : options.batteryCharge;
 }

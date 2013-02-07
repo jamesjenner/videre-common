@@ -30,19 +30,19 @@ function DroneCapabilities(options) {
     options = options || {};
 
     // capabilities for telemetry reporting
-    this.hover = ((options.hover != null) ? options.hover : false);
-    this.vtol = ((options.vtol != null) ? options.vtol : false);
-    this.speed = ((options.speed != null) ? options.speed : false);
-    this.velocityX = ((options.velocityX != null) ? options.velocityX : false);
-    this.velocityY = ((options.velocityY != null) ? options.velocityY : false);
-    this.velocityZ = ((options.velocityZ != null) ? options.velocityZ : false);
-    this.attitude = ((options.attitude != null) ? options.attitude : false);
-    this.altitude = ((options.altitude != null) ? options.altitude : false);
-    this.temperature = ((options.temperature != null) ? options.temperature : false);
-    this.heading = ((options.heading != null) ? options.heading : false);
-    this.vsi = ((options.vsi != null) ? options.vsi : false);
-    this.position = ((options.position != null) ? options.position : false);
-    this.batteryVoltage = ((options.batteryVoltage != null) ? options.batteryVoltage : false);
-    this.batteryCharge = ((options.batteryCharge != null) ? options.batteryCharge : false);
+    this.hover = options.hover === undefined ? false : options.hover;
+    this.vtol = options.vtol === undefined ? false : options.vtol;
+    this.speed = options.speed === undefined ? false : options.speed;
+    this.velocityX = options.velocityX === undefined ? false : options.velocityX;
+    this.velocityY = options.velocityY === undefined ? false : options.velocityY;
+    this.velocityZ = options.velocityZ === undefined ? false : options.velocityZ;
+    this.attitude = options.attitude === undefined ? false : options.attitude;
+    this.altitude = options.altitude === undefined ? false : options.altitude;
+    this.temperature = options.temperature === undefined ? false : options.temperature;
+    this.heading = options.heading === undefined ? false : options.heading;
+    this.vsi = options.vsi === undefined ? false : options.vsi;
+    this.position = options.position === undefined ? false : options.position;
+    this.batteryVoltage = options.batteryVoltage === undefined ? false : options.batteryVoltage;
+    this.batteryCharge = options.batteryCharge === undefined ? false : options.batteryCharge;
 }
 

@@ -29,9 +29,9 @@ module.exports = Attitude;
 function Attitude(options) {
     options = options || {};
 
-    this.pitch = options.pitch | 0;
-    this.roll = options.roll | 0;
-    this.yaw = options.yaw | 0;
+    this.pitch = options.pitch === undefined ? 0 : options.pitch;
+    this.roll = options.roll === undefined ? 0 : options.roll;
+    this.yaw = options.yaw === undefined ? 0 : options.yaw;
 
     this.x = this.pitch;
     this.y = this.roll;

@@ -32,7 +32,7 @@ module.exports = Path;
 function Path(options) {
     options = options || {};
 
-    this.points = options.points || new Array();
+    this.points = options.points === undefined ? new Array() : options.points;
 }
 
 /* 

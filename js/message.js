@@ -73,8 +73,8 @@ Message.CMD_TAKEOFF = 'cmdTakeoff';
 function Message(data) {
     data = data || {};
 	     
-    this.id = data.id || Message.UNKNOWN;
-    this.body = data.body || null;
+    this.id = options.id === undefined ? Message.UNKNOWN : options.id;
+    this.body = options.body === undefined ? null : options.body;
 };
 
 /* 
@@ -84,7 +84,7 @@ Message.deconstructMessage = function(jsonData) {
     var obj = JSON.parse(jsonData);
 
     // initialise in case it wasn't sent
-    obj.body = obj.body || 'null';
+    obj.body = obj.body === undefined ? 'null' : obj.body;
 
     // always parse, presuming it's JSON
     obj.body = JSON.parse(obj.body);

@@ -61,16 +61,15 @@ Vehicle.validTypes[Vehicle.TYPE_KEY_SUBMERSIBLE] = 'Submersible';
 function Vehicle(options) {
     options = options || {};
     
-    this.connectionStatus = options.connectionStatus || Vehicle.VEHICLE_DISCONNECTED;
-    this.position = options.position || 0;
-    
-    this.name = options.name || Vehicle.DEFAULT_NAME;
-    this.id = options.id || "none";
-    this.type = options.type || Vehicle.VEHICLE_AIR;
-    this.deviceType = options.deviceType || Vehicle.DEVICE_PARROT_V1;
-    this.onMap = ((options.onMap != null) ? options.onMap : false);
-    this.active = ((options.active != null) ? options.active : false);
-    
+    this.connectionStatus = options.connectionStatus === undefined ? Vehicle.VEHICLE_DISCONNECTED : options.connectionStatus;
+    this.position = options.position === undefined ? 0 : options.position;
+    this.name = options.name === undefined ? Vehicle.DEFAULT_NAME : options.name;
+    this.id = options.id === undefined ? "none" : options.id;
+    this.type = options.type === undefined ? Vehicle.VEHICLE_AIR : options.type;
+    this.deviceType = options.deviceType === undefined ? Vehicle.DEVICE_PARROT_V1 : options.deviceType;
+    this.onMap = options.onMap === undefined ? false : options.onMap;
+    this.active = options.active === undefined ? false : options.active;
+
     // check that the type if valid, if not then assign to the first entry
     var isTypeValid = false;
     
@@ -85,8 +84,8 @@ function Vehicle(options) {
         this.type = Vehicle.VEHICLE_AIR;
     }
     
-    this.navigationEnabled = ((options.navigationEnabled != null) ? options.navigationEnabled : false);
-    this.remoteControlEnabled = ((options.remoteControlEnabled != null) ? options.remoteControlEnabled : true);
+    this.navigationEnabled = options.navigationEnabled === undefined ? false : options.navigationEnabled;
+    this.remoteControlEnabled = options.remoteControlEnabled === undefined ? false : options.remoteControlEnabled;
 
     // create the paths as a new instance, as often it's just JSON parsed data which doesn't hold the object
     if(options.navigationPath) {

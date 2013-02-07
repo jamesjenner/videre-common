@@ -29,7 +29,7 @@ module.exports = Payload;
 function Payload (options) {
     options = options || {};
 
-    this.name = options.name || "unknown";
-    this.id = options.id || "unknown";
+    this.name = options.name === undefined ? "unknown" : options.name;
+    this.id = options.id === undefined ? "unknown" : options.id;
 }
 
