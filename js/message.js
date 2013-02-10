@@ -30,6 +30,8 @@ Message.UNKNOWN = '__unknown';
 Message.ADD_VEHICLE = 'addVehicle';
 Message.DELETE_VEHICLE = 'deleteVehicle';
 Message.UPDATE_VEHICLE = 'updateVehicle';
+Message.UPDATE_NAV_PATH = 'updateNavPath';
+Message.NAV_PATH_UPDATED = 'navPathUpdated';
 Message.GET_VEHICLES = 'getVehicles';
 Message.VEHICLES = 'vehicles';
 
