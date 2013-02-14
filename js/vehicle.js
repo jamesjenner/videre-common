@@ -70,6 +70,9 @@ function Vehicle(options) {
     this.onMap = options.onMap === undefined ? false : options.onMap;
     this.active = options.active === undefined ? false : options.active;
 
+    this.vehicleAddr = options.vehicleAddr === undefined ? '' : options.vehicleAddr;
+    this.vehiclePort = options.vehiclePort === undefined ? '' : options.vehiclePort;
+
     // check that the type if valid, if not then assign to the first entry
     var isTypeValid = false;
     
