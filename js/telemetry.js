@@ -57,4 +57,5 @@ function Telemetry(options) {
     this.position = options.position === undefined ? new Position() : options.position;
     this.batteryVoltage = options.batteryVoltage === undefined ? 0 : options.batteryVoltage;
     this.batteryCharge = options.batteryCharge === undefined ? 0 : options.batteryCharge;
+    this.dirty = false;
 }
