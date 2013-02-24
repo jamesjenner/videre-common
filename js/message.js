@@ -35,9 +35,6 @@ Message.NAV_PATH_UPDATED = 'navPathUpdated';
 Message.GET_VEHICLES = 'getVehicles';
 Message.VEHICLES = 'vehicles';
 
-Message.VEHICLE_TELEMETRY = 'vehicleTelemetry';
-Message.GET_TELEMETRY = 'getVehicleTelemetry';
-
 Message.DRONES = 'drones';
 
 Message.AUTHENTICATE = 'authenticate';
@@ -55,6 +52,15 @@ Message.COMMS_TYPE_MIXED = 'mixed';
 
 Message.VEHICLE_PAYLOAD = 'vehiclePayload';
 Message.GET_PAYLOAD = 'getVehiclePayload';
+
+Message.VEHICLE_TELEMETRY = 'vehicleTelemetry';
+Message.VEHICLE_TELEMETRY_ON = 'vehicleTelemetryOn';
+Message.VEHICLE_TELEMETRY_OFF = 'vehicleTelemetryOff';
+
+Message.VEHICLE_RESET = 'vehicleReset';
+Message.VEHICLE_DISCONNECT = 'vehicleDisconnect';
+Message.VEHICLE_CONNECT = 'vehicleConnect';
+Message.VEHICLE_RECONNECT = 'vehicleReconnect';
 
 Message.CMD_EMERGENCY_STOP = 'cmdAbort';
 Message.CMD_LEFT = 'cmdLeft';
