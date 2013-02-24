@@ -62,6 +62,11 @@ Message.VEHICLE_DISCONNECT = 'vehicleDisconnect';
 Message.VEHICLE_CONNECT = 'vehicleConnect';
 Message.VEHICLE_RECONNECT = 'vehicleReconnect';
 
+Message.VEHICLE_DISCONNECTING = 'vehicleDisconnecting';
+Message.VEHICLE_DISCONNECTED = 'vehicleDisconnected';
+Message.VEHICLE_CONNECTING = 'vehicleConnecting';
+Message.VEHICLE_CONNECTED = 'vehicleConnected';
+
 Message.CMD_EMERGENCY_STOP = 'cmdAbort';
 Message.CMD_LEFT = 'cmdLeft';
 Message.CMD_RIGHT = 'cmdRight';
