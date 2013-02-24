@@ -53,6 +53,11 @@ Vehicle.COMMS_CONNECTED = 1;
 Vehicle.COMMS_RECONNECTING = 2;
 Vehicle.COMMS_DISCONNECTING = 3;
 
+Vehicle.LAUNCHING = 0;
+Vehicle.LAUNCHED = 1;
+Vehicle.LANDING = 2;
+Vehicle.LANDED = 3;
+
 Vehicle.validTypes = new Object();
 Vehicle.validTypes[Vehicle.TYPE_KEY_AIR] = 'Air';
 Vehicle.validTypes[Vehicle.TYPE_KEY_SURFACE] = 'Surface';
@@ -70,7 +75,7 @@ function Vehicle(options) {
     this.deviceType = ((options.deviceType != null) ? options.deviceType : Vehicle.DEVICE_PARROT_V1);
     this.onMap = ((options.onMap != null) ? options.onMap : false);
     this.active = ((options.active != null) ? options.active : false);
-    this.launched = ((options.launched != null) ? options.launched : false);
+    this.activeState = ((options.activeState != null) ? options.activeState : Vehicle.LANDED);
     this.vehicleAddr = ((options.vehicleAddr != null) ? options.vehicleAddr : '');
     this.vehiclePort = ((options.vehiclePort != null) ? options.vehiclePort : '');
     this.navigationEnabled = ((options.navigationEnabled != null) ? options.navigationEnabled : false);
@@ -144,8 +149,8 @@ Vehicle.update = function(data) {
     if(data.active != null) {
     	this.active = data.active;
     }
-    if(data.launched != null) {
-    	this.launched = data.launched;
+    if(data.activeState != null) {
+    	this.activeState = data.activeState;
     }
     if(data.navigationPath) {
         this.navigationPath = new Path(data.navigationPath);
