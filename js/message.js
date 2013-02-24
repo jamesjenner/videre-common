@@ -67,6 +67,11 @@ Message.VEHICLE_DISCONNECTED = 'vehicleDisconnected';
 Message.VEHICLE_CONNECTING = 'vehicleConnecting';
 Message.VEHICLE_CONNECTED = 'vehicleConnected';
 
+Message.VEHICLE_LANDED = 'vehicleLanded';
+Message.VEHICLE_LANDING = 'vehicleLanding';
+Message.VEHICLE_LAUNCHING = 'vehicleLaunching';
+Message.VEHICLE_LAUNCHED = 'vehicleLaunched';
+
 Message.CMD_EMERGENCY_STOP = 'cmdAbort';
 Message.CMD_LEFT = 'cmdLeft';
 Message.CMD_RIGHT = 'cmdRight';
@@ -81,7 +86,7 @@ Message.CMD_ON = 'cmdOn';
 Message.CMD_OFF = 'cmdOff';
 
 Message.CMD_LAND = 'cmdLand';
-Message.CMD_TAKEOFF = 'cmdTakeoff';
+Message.CMD_LAUNCH = 'cmdLaunch';
 
 function Message(data) {
     data = data || {};
