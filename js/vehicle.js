@@ -70,6 +70,7 @@ function Vehicle(options) {
     this.deviceType = ((options.deviceType != null) ? options.deviceType : Vehicle.DEVICE_PARROT_V1);
     this.onMap = ((options.onMap != null) ? options.onMap : false);
     this.active = ((options.active != null) ? options.active : false);
+    this.launched = ((options.launched != null) ? options.launched : false);
     this.vehicleAddr = ((options.vehicleAddr != null) ? options.vehicleAddr : '');
     this.vehiclePort = ((options.vehiclePort != null) ? options.vehiclePort : '');
     this.navigationEnabled = ((options.navigationEnabled != null) ? options.navigationEnabled : false);
@@ -142,6 +143,9 @@ Vehicle.update = function(data) {
     }
     if(data.active != null) {
     	this.active = data.active;
+    }
+    if(data.launched != null) {
+    	this.launched = data.launched;
     }
     if(data.navigationPath) {
         this.navigationPath = new Path(data.navigationPath);
