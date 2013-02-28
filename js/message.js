@@ -62,10 +62,11 @@ Message.VEHICLE_DISCONNECT = 'vehicleDisconnect';
 Message.VEHICLE_CONNECT = 'vehicleConnect';
 Message.VEHICLE_RECONNECT = 'vehicleReconnect';
 
-Message.VEHICLE_DISCONNECTING = 'vehicleDisconnecting';
-Message.VEHICLE_DISCONNECTED = 'vehicleDisconnected';
 Message.VEHICLE_CONNECTING = 'vehicleConnecting';
 Message.VEHICLE_CONNECTED = 'vehicleConnected';
+Message.VEHICLE_DISCONNECTING = 'vehicleDisconnecting';
+Message.VEHICLE_DISCONNECTED = 'vehicleDisconnected';
+Message.VEHICLE_RECONNECTING = 'vehicleReconnecting';
 
 Message.VEHICLE_LANDED = 'vehicleLanded';
 Message.VEHICLE_LANDING = 'vehicleLanding';
