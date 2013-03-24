@@ -35,6 +35,8 @@ Message.NAV_PATH_UPDATED = 'navPathUpdated';
 Message.GET_VEHICLES = 'getVehicles';
 Message.VEHICLES = 'vehicles';
 
+Message.VEHICLE_DEVICE_TYPES = 'vehicleDeviceTypes';
+
 Message.DRONES = 'drones';
 
 Message.AUTHENTICATE = 'authenticate';
