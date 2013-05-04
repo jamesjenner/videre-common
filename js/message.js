@@ -32,6 +32,10 @@ Message.DELETE_VEHICLE = 'deleteVehicle';
 Message.UPDATE_VEHICLE = 'updateVehicle';
 Message.UPDATE_NAV_PATH = 'updateNavPath';
 Message.NAV_PATH_UPDATED = 'navPathUpdated';
+Message.NAV_PATH_SET_TARGETED = 'navPathSetTargeted';
+Message.NAV_PATH_WAYPOINT_ACHEIVED = 'navPathWaypointAcheived';
+Message.NAV_PATH_REFRESH = 'navPathRefresh';
+Message.CURRENT_POSITION = 'currentPosition';
 Message.GET_VEHICLES = 'getVehicles';
 Message.VEHICLES = 'vehicles';
 
