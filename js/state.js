@@ -52,9 +52,6 @@ State.STATE_EMERGANCY = 14;
 State.STATE_SHUTINGDOWN = 15;
 
 function State(options) {
-    this.longitude = longitude;
-    this.altitude = altitude;
-
     this.state = ((options.state != null) ? options.state : State.STATE_UNKNOWN);
     this.armed = ((options.armed != null) ? options.armed : false);
     this.autonomous = ((options.autonomous != null) ? options.autonomous : false);
