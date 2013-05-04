@@ -30,25 +30,11 @@ if (typeof require != "undefined") {
 
 module.exports = Telemetry;
 
-Telemetry.STATE_LANDED = 0;
-Telemetry.STATE_LANDING = 1;
-Telemetry.STATE_TAKING_OFF = 2;
-Telemetry.STATE_HOVERING = 3;
-Telemetry.STATE_ABORTED = 4;
-Telemetry.STATE_FLYING = 5;
-Telemetry.STATE_TEST_MODE = 6;
-Telemetry.STATE_IDLE = 7;
-Telemetry.STATE_AUTONOMOUS = 7;
-Telemetry.STATE_UNKNOWN = -1;
-
 function Telemetry(options) {
     options = options || {};
     
     this.name = ((options.name != null) ? options.name : "unknown");
     this.id = ((options.id != null) ? options.id : "unknown");
-
-    this.state = ((options.state != null) ? options.state : '');
-    this.armed = ((options.armed != null) ? options.armed : false);
 
     this.speed = ((options.speed != null) ? options.speed : 0);
     this.velocity = ((options.velocity != null) ? options.velocity : {x: 0, y: 0, z: 0});
