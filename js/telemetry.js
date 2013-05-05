@@ -47,5 +47,7 @@ function Telemetry(options) {
     this.batteryVoltage = ((options.batteryVoltage != null) ? options.batteryVoltage : 0);
     this.batteryCurrent = ((options.batteryCurrent != null) ? options.batteryCurrent : 0);
     this.batteryCharge = ((options.batteryCharge != null) ? options.batteryCharge : 0);
+    this.commDropRate = ((options.commDropRate != null) ? options.commDropRate : 0);
+    this.commErrors = ((options.commErrors != null) ? options.commErrors : 0);
     this.dirty = false;
 }
