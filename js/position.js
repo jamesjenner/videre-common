@@ -27,7 +27,7 @@ if(typeof module == "undefined"){
 module.exports = Position;
 
 function Position(latitude, longitude, altitude) {
-    this.latitude = latitude;
-    this.longitude = longitude;
-    this.altitude = altitude;
+    this.latitude = ((latitude != null) ? latitude : 0);
+    this.longitude = ((longitude != null) ? longitude : 0);
+    this.altitude = ((altitude != null) ? altitude : 0);
 }
