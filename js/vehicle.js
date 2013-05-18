@@ -26,6 +26,7 @@ if(typeof module == "undefined"){
 if (typeof require != "undefined") {
     var Telemetry = require('./telemetry');
     var Path = require('./path');
+    var Position = require('./position');
 }
 
 module.exports = Vehicle;
@@ -75,9 +76,8 @@ function Vehicle(options) {
     
     this.connectionStatus = ((options.connectionStatus != null) ? options.connectionStatus : Vehicle.VEHICLE_DISCONNECTED);
 
-    this.position = ((options.position != null) ? options.position : 0);
-    this.name = ((options.name != null) ? options.name : Vehicle.DEFAULT_NAME);
     this.id = ((options.id != null) ? options.id : "none");
+    this.name = ((options.name != null) ? options.name : Vehicle.DEFAULT_NAME);
     this.type = ((options.type != null) ? options.type : Vehicle.VEHICLE_AIR);
     this.deviceType = ((options.deviceType != null) ? options.deviceType : Vehicle.DEVICE_PARROT_V1);
     this.onMap = ((options.onMap != null) ? options.onMap : false);
@@ -95,6 +95,7 @@ function Vehicle(options) {
     this.rollAccuracy = ((options.rollAccuracy != null) ? options.rollAccuracy : 0.003);
     this.yawAccuracy = ((options.yawAccuracy != null) ? options.yawAccuracy : 0.05);
 
+    this.position = ((options.position != null) ? options.position : new Position());
     this.navigationEnabled = ((options.navigationEnabled != null) ? options.navigationEnabled : false);
     this.remoteControlEnabled = ((options.remoteControlEnabled != null) ? options.remoteControlEnabled : false);
     this.telemetryEnabled = ((options.telemetryEnabled != null) ? options.telemetryEnabled : false);
