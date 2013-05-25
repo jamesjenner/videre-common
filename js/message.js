@@ -38,6 +38,7 @@ Message.NAV_PATH_REFRESH = 'navPathRefresh';
 Message.CURRENT_POSITION = 'currentPosition';
 Message.GET_VEHICLES = 'getVehicles';
 Message.VEHICLES = 'vehicles';
+Message.COMMS = 'comms';
 
 Message.VEHICLE_DEVICE_TYPES = 'vehicleDeviceTypes';
 
