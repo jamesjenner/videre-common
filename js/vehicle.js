@@ -83,6 +83,8 @@ function Vehicle(options) {
     this.onMap = ((options.onMap != null) ? options.onMap : false);
     this.active = ((options.active != null) ? options.active : false);
     this.activeState = ((options.activeState != null) ? options.activeState : Vehicle.LANDED);
+    this.commId = ((options.id != null) ? options.commId : '');
+    this.commProtocolId = ((options.commProtocolId != null) ? options.commProtocolId : '');
     this.connectionType = ((options.connectionType != null) ? options.connectionType : Vehicle.CONNECTION_TYPE_SERIAL);
     this.networkAddress = ((options.networkAddress != null) ? options.networkAddress : '');
     this.networkPort = ((options.networkPort != null) ? options.networkPort : '');
