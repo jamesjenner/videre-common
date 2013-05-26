@@ -59,3 +59,14 @@ Comm.prototype.equals = function(c1) {
 
     return false;
 }
+
+Comm.prototype.toText = function() {
+    var txt = '';
+    if(this.connectionType === Comm.TYPE_SERIAL) {
+	txt += "Serial " + this.serialPort + " baud: " + this.baudRate;
+    } else {
+	txt += "Network " + this.networkAddress + ":" + this.networkPort;
+    }
+
+    return txt;
+}
