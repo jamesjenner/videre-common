@@ -38,6 +38,7 @@ function Comm(options) {
     this.networkPort = ((options.networkPort != null) ? options.networkPort : '');
     this.serialPort = ((options.serialPort != null) ? options.serialPort : '');
     this.baudRate = ((options.baudRate != null) ? options.baudRate : '57600');
+    this.protocol = ((options.protocol != null) ? options.protocol : 'unknown');
 }
 
 Comm.prototype.equals = function(c1) {
@@ -63,9 +64,9 @@ Comm.prototype.equals = function(c1) {
 Comm.prototype.toText = function() {
     var txt = '';
     if(this.connectionType === Comm.TYPE_SERIAL) {
-	txt += "Serial " + this.serialPort + " baud: " + this.baudRate;
+	txt += "Serial " + this.serialPort + " baud: " + this.baudRate + " protocol: " + this.protocol;
     } else {
-	txt += "Network " + this.networkAddress + ":" + this.networkPort;
+	txt += "Network " + this.networkAddress + ":" + this.networkPort + " protocol: " + this.protocol;
     }
 
     return txt;
