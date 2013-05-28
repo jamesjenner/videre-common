@@ -35,7 +35,6 @@ Message.NAV_PATH_UPDATED = 'navPathUpdated';
 Message.NAV_PATH_SET_TARGETED = 'navPathSetTargeted';
 Message.NAV_PATH_WAYPOINT_ACHIEVED = 'navPathWaypointAchieved';
 Message.NAV_PATH_REFRESH = 'navPathRefresh';
-Message.CURRENT_POSITION = 'currentPosition';
 Message.GET_VEHICLES = 'getVehicles';
 Message.VEHICLES = 'vehicles';
 Message.VEHICLE_COMMS = 'vehicleComms';
@@ -60,6 +59,9 @@ Message.COMMS_TYPE_MIXED = 'mixed';
 Message.VEHICLE_PAYLOAD = 'vehiclePayload';
 Message.GET_PAYLOAD = 'getVehiclePayload';
 
+Message.VEHICLE_STATE = 'vehicleState';
+Message.VEHICLE_STATUS_MSG = 'vehicleStatusMsg';
+Message.CURRENT_POSITION = 'currentPosition';
 Message.VEHICLE_TELEMETRY = 'vehicleTelemetry';
 Message.VEHICLE_TELEMETRY_ON = 'vehicleTelemetryOn';
 Message.VEHICLE_TELEMETRY_OFF = 'vehicleTelemetryOff';
@@ -79,6 +81,10 @@ Message.VEHICLE_LANDED = 'vehicleLanded';
 Message.VEHICLE_LANDING = 'vehicleLanding';
 Message.VEHICLE_LAUNCHING = 'vehicleLaunching';
 Message.VEHICLE_LAUNCHED = 'vehicleLaunched';
+
+Message.CMD_ARM = 'cmdArm';
+Message.CMD_DISARM = 'cmdDisarm';
+Message.CMD_SHUTDOWN = 'cmdShutdown';
 
 Message.CMD_EMERGENCY_STOP = 'cmdAbort';
 Message.CMD_LEFT = 'cmdLeft';
