@@ -27,6 +27,7 @@ if (typeof require != "undefined") {
     var Telemetry = require('./telemetry');
     var Path = require('./path');
     var Position = require('./position');
+    var State = require('./state');
 }
 
 module.exports = Vehicle;
@@ -82,7 +83,7 @@ function Vehicle(options) {
     this.deviceType = ((options.deviceType != null) ? options.deviceType : Vehicle.DEVICE_PARROT_V1);
     this.onMap = ((options.onMap != null) ? options.onMap : false);
     this.active = ((options.active != null) ? options.active : false);
-    this.activeState = ((options.activeState != null) ? options.activeState : Vehicle.LANDED);
+    this.state = ((options.state != null) ? options.state : new State());
     this.commId = ((options.id != null) ? options.commId : '');
     this.commProtocolId = ((options.commProtocolId != null) ? options.commProtocolId : '');
     this.connectionType = ((options.connectionType != null) ? options.connectionType : Vehicle.CONNECTION_TYPE_SERIAL);

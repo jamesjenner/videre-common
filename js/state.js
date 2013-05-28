@@ -26,30 +26,15 @@ if(typeof module == "undefined"){
 
 module.exports = State;
 
-State.STATE_UNKNOWN = -1;
-
-// TODO: see how to merge the types of state
-
-// the following are used by parrot ar drone
-State.STATE_LANDED = 0;
-State.STATE_LANDING = 1;
-State.STATE_TAKING_OFF = 2;
-State.STATE_HOVERING = 3;
-State.STATE_ABORTED = 4;
-State.STATE_FLYING = 5;
-State.STATE_TEST_MODE = 6;
-State.STATE_IDLE = 7;
-State.STATE_AUTONOMOUS = 7;
-
-// the following are used by mavlink
-State.STATE_UNINIT = 8;
-State.STATE_BOOTING = 9;
-State.STATE_CALIBRATING = 10;
-State.STATE_STANDBY = 11;
-State.STATE_ACTIVE = 12;
-State.STATE_CRITICAL = 13;
-State.STATE_EMERGANCY = 14;
-State.STATE_SHUTINGDOWN = 15;
+State.STATE_UNKNOWN = "unknown";
+State.STATE_UNINIT = "uninitialised";
+State.STATE_BOOTING = "booting";
+State.STATE_CALIBRATING = "calibrating";
+State.STATE_STANDBY = "standby";
+State.STATE_ACTIVE = "active";
+State.STATE_CRITICAL = "critical";
+State.STATE_EMERGANCY = "emergancy";
+State.STATE_SHUTINGDOWN = "shuttingDown;
 
 function State(options) {
     options = options || {};
