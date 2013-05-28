@@ -170,9 +170,6 @@ Vehicle.update = function(data) {
     if(data.active != null) {
     	this.active = data.active;
     }
-    if(data.activeState != null) {
-    	this.activeState = data.activeState;
-    }
     if(data.navigationPath) {
         this.navigationPath = new Path(data.navigationPath);
     }
