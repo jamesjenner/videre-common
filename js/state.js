@@ -34,7 +34,7 @@ State.STATE_STANDBY = "standby";
 State.STATE_ACTIVE = "active";
 State.STATE_CRITICAL = "critical";
 State.STATE_EMERGANCY = "emergancy";
-State.STATE_SHUTINGDOWN = "shuttingDown;
+State.STATE_SHUTINGDOWN = "shuttingDown";
 
 function State(options) {
     options = options || {};
