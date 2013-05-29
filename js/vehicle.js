@@ -74,8 +74,7 @@ function Vehicle(options) {
     this.active = ((options.active != null) ? options.active : false);
     this.state = ((options.state != null) ? options.state : new State());
     
-    this.commId = ((options.id != null) ? options.commId : '');
-    this.commProtocolId = ((options.commProtocolId != null) ? options.commProtocolId : '');
+    this.deviceId = ((options.id != null) ? options.deviceId : '');
 
     this.positionReportingMode = ((options.positionReportingMode != null) ? options.positionReportingMode : Vehicle.POSITION_REPORTING_DISTANCE);
     this.positionReportingValue = ((options.positionReportingValue != null) ? options.positionReportingValue : 5);
