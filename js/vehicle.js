@@ -123,16 +123,16 @@ function Vehicle(options) {
 /* 
  * update vehicle
  */
-Vehicle.prototype.update = function(data) {
-    this.name = ((data.name != null) ? data.name : this.name);
-    this.type = ((data.type != null) ? data.type : this.type);
+Vehicle.merge = function(d1, d2) {
+    d1.name = ((d2.name != null) ? d2.name : d1.name);
+    d1.type = ((d2.type != null) ? d2.type : d1.type);
 
-    this.positionReportingMode = ((data.positionReportingMode != null) ? data.positionReportingMode : this.positionReportingMode);
-    this.positionReportingValue = ((data.positionReportingValue != null) ? data.positionReportingValue : this.positionReportingValue);
+    d1.positionReportingMode = ((d2.positionReportingMode != null) ? d2.positionReportingMode : d1.positionReportingMode);
+    d1.positionReportingValue = ((d2.positionReportingValue != null) ? d2.positionReportingValue : d1.positionReportingValue);
 
-    this.pitchAccuracy = ((data.pitchAccuracy != null) ? data.pitchAccuracy : this.pitchAccuracy);
-    this.rollAccuracy = ((data.rollAccuracy != null) ? data.rollAccuracy : this.rollAccuracy);
-    this.yawAccuracy = ((data.yawAccuracy != null) ? data.yawAccuracy : this.yawAccuracy);
+    d1.pitchAccuracy = ((d2.pitchAccuracy != null) ? d2.pitchAccuracy : d1.pitchAccuracy);
+    d1.rollAccuracy = ((d2.rollAccuracy != null) ? d2.rollAccuracy : d1.rollAccuracy);
+    d1.yawAccuracy = ((d2.yawAccuracy != null) ? d2.yawAccuracy : d1.yawAccuracy);
 
-    this.navigationPath = ((data.navigationPath != null) ? data.navigationPath : this.navigationPath);
+    d1.navigationPath = ((d2.navigationPath != null) ? d2.navigationPath : d1.navigationPath);
 }
