@@ -33,9 +33,6 @@ module.exports = Telemetry;
 function Telemetry(options) {
     options = options || {};
     
-    this.name = ((options.name != null) ? options.name : "unknown");
-    this.id = ((options.id != null) ? options.id : "unknown");
-
     this.speed = ((options.speed != null) ? options.speed : 0);
     this.velocity = ((options.velocity != null) ? options.velocity : {x: 0, y: 0, z: 0});
     this.attitude = ((options.attitude != null) ? options.attitude : new Attitude());
