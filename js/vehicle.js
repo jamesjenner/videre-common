@@ -70,8 +70,6 @@ function Vehicle(options) {
     this.id = ((options.id != null) ? options.id : "none");
     this.name = ((options.name != null) ? options.name : Vehicle.DEFAULT_NAME);
     this.type = ((options.type != null) ? options.type : Vehicle.VEHICLE_AIR);
-    this.onMap = ((options.onMap != null) ? options.onMap : false);
-    this.active = ((options.active != null) ? options.active : false);
     this.state = ((options.state != null) ? options.state : new State());
     
     this.deviceId = ((options.id != null) ? options.deviceId : '');
@@ -110,15 +108,6 @@ function Vehicle(options) {
     } else {
 	this.navigationPath = new Path();
     }
-    if(options.actualPath) {
-	if(options.actualPath instanceof Path) {
-	    this.actualPath = options.actualPath;
-	} else {
-	    this.actualPath = new Path(options.actualPath);
-	}
-    } else {
-	this.actualPath = new Path();
-    }
     
     if(options.telemetry) {
 	if(options.telemetry instanceof Telemetry) {
@@ -135,25 +124,15 @@ function Vehicle(options) {
  * update vehicle
  */
 Vehicle.update = function(data) {
-    if(this.connectionStatus ) {
-    	this.connectionStatus = data.connectionStatus;
-    }
-    if(data.name) {
-    	this.name = data.name;
-    }
-    if(data.type) {
-    	this.type = data.type;
-    }
-    if(data.deviceType) {
-    	this.deviceType = data.deviceType;
-    }
-    if(data.onMap != null) {
-    	this.onMap = data.onMap;
-    }
-    if(data.active != null) {
-    	this.active = data.active;
-    }
-    if(data.navigationPath) {
-        this.navigationPath = new Path(data.navigationPath);
-    }
+    this.name = ((data.name != null) ? data.name : this.name);
+    this.type = ((data.type != null) ? data.type : this.type);
+
+    this.positionReportingMode = ((data.positionReportingMode != null) ? data.positionReportingMode : this.positionReportingMode);
+    this.positionReportingValue = ((data.positionReportingValue != null) ? data.positionReportingValue : this.positionReportingValue);
+
+    this.pitchAccuracy = ((data.pitchAccuracy != null) ? data.pitchAccuracy : this.pitchAccuracy);
+    this.rollAccuracy = ((data.rollAccuracy != null) ? data.rollAccuracy : this.rollAccuracy);
+    this.yawAccuracy = ((data.yawAccuracy != null) ? data.yawAccuracy : this.yawAccuracy);
+
+    this.navigationPath = ((data.navigationPath != null) ? data.navigationPath : this.navigationPath);
 }
