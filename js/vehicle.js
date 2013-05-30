@@ -123,7 +123,7 @@ function Vehicle(options) {
 /* 
  * update vehicle
  */
-Vehicle.update = function(data) {
+Vehicle.prototype.update = function(data) {
     this.name = ((data.name != null) ? data.name : this.name);
     this.type = ((data.type != null) ? data.type : this.type);
 
