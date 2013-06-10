@@ -84,6 +84,21 @@ Message.VEHICLE_LAUNCHED = 'vehicleLaunched';
 
 Message.CMD_ARM = 'cmdArm';
 Message.CMD_DISARM = 'cmdDisarm';
+
+Message.CMD_SET_AUTONOMOUS_MODE = 'cmdSetAutonomous';
+Message.CMD_SET_TEST_MODE = 'cmdSetTest';
+Message.CMD_SET_STABILIZED_MODE = 'cmdSetStabilized';
+Message.CMD_SET_HIL_MODE = 'cmdSetHardwareInLoop';
+Message.CMD_SET_REMOTE_CONTROL_MODE = 'cmdSetRemoteControl';
+Message.CMD_SET_GUIDED_MODE = 'cmdSetGuided';
+
+Message.CMD_LAND = 'cmdLand';
+Message.CMD_LAUNCH = 'cmdLaunch';
+Message.CMD_HALT = 'cmdHold';
+Message.CMD_GO = 'cmdGo';
+Message.CMD_REBOOT_AUTOPILOT = 'cmdRebootAutopilot';
+Message.CMD_REBOOT = 'cmdReboot';
+Message.CMD_SHUTDOWN_AUTOPILOT = 'cmdShutdownAutopilot';
 Message.CMD_SHUTDOWN = 'cmdShutdown';
 
 Message.CMD_EMERGENCY_STOP = 'cmdAbort';
@@ -98,9 +113,6 @@ Message.CMD_DOWN = 'cmdDown';
 
 Message.CMD_ON = 'cmdOn';
 Message.CMD_OFF = 'cmdOff';
-
-Message.CMD_LAND = 'cmdLand';
-Message.CMD_LAUNCH = 'cmdLaunch';
 
 function Message(data) {
     data = data || {};
