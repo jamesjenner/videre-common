@@ -41,6 +41,7 @@ function Telemetry(options) {
     this.heading = ((options.heading != null) ? options.heading : 0);
     this.vsi = ((options.vsi != null) ? options.vsi : 0);
     this.position = ((options.position != null) ? options.position : new Position());
+    this.throttle = ((options.throttle != null) ? options.throttle : 0);
     this.batteryVoltage = ((options.batteryVoltage != null) ? options.batteryVoltage : 0);
     this.batteryCurrent = ((options.batteryCurrent != null) ? options.batteryCurrent : 0);
     this.batteryCharge = ((options.batteryCharge != null) ? options.batteryCharge : 0);
